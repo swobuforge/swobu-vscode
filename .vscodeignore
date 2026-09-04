@@ -1,0 +1,10 @@
+.github/**
+test/**
+src/**
+scripts/**
+node_modules/**
+tsconfig.json
+eslint.config.mjs
+esbuild.mjs
+Makefile
+runtime-manifest.json

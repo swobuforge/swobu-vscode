@@ -1,0 +1,154 @@
+{
+  "name": "swobu",
+  "displayName": "LLM Router for VS Code, Claude Code & Codex \u2014 Swobu",
+  "description": "Use your Swobu routes in VS Code and connect Claude Code or Codex without replacing their interfaces.",
+  "version": "0.1.0",
+  "publisher": "swobuforge",
+  "preview": true,
+  "license": "Apache-2.0",
+  "engines": {
+    "vscode": "^1.136.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Other"
+  ],
+  "keywords": [
+    "llm router",
+    "ai gateway",
+    "claude code",
+    "codex",
+    "openai compatible",
+    "model routing",
+    "local ai"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguageModelChatProvider:swobu",
+    "onCommand:swobu.open",
+    "onCommand:swobu.setup",
+    "onCommand:swobu.connectClaude",
+    "onCommand:swobu.connectCodex",
+    "onCommand:swobu.configureModel",
+    "onCommand:swobu.refreshModels"
+  ],
+  "capabilities": {
+    "virtualWorkspaces": false,
+    "untrustedWorkspaces": {
+      "supported": true,
+      "restrictedConfigurations": [
+        "swobu.endpoint",
+        "swobu.executable",
+        "swobu.modelOverrides"
+      ]
+    }
+  },
+  "contributes": {
+    "languageModelChatProviders": [
+      {
+        "vendor": "swobu",
+        "displayName": "Swobu"
+      }
+    ],
+    "commands": [
+      {
+        "command": "swobu.open",
+        "title": "Open",
+        "category": "Swobu"
+      },
+      {
+        "command": "swobu.setup",
+        "title": "Set Up",
+        "category": "Swobu"
+      },
+      {
+        "command": "swobu.connectClaude",
+        "title": "Connect Claude Code",
+        "category": "Swobu"
+      },
+      {
+        "command": "swobu.connectCodex",
+        "title": "Connect Codex",
+        "category": "Swobu"
+      },
+      {
+        "command": "swobu.configureModel",
+        "title": "Configure Model",
+        "category": "Swobu"
+      },
+      {
+        "command": "swobu.refreshModels",
+        "title": "Refresh Models",
+        "category": "Swobu"
+      }
+    ],
+    "configuration": {
+      "title": "Swobu",
+      "properties": {
+        "swobu.endpoint": {
+          "type": "string",
+          "default": "http://127.0.0.1:7926",
+          "scope": "machine",
+          "description": "Swobu daemon endpoint."
+        },
+        "swobu.executable": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Optional absolute path to a compatible Swobu executable. The bundled executable is used when empty."
+        },
+        "swobu.modelOverrides": {
+          "type": "object",
+          "default": {},
+          "scope": "machine",
+          "description": "Capability and token-limit overrides keyed by <workspace>/<route>.",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "maxInputTokens": {
+                "type": "number",
+                "minimum": 1
+              },
+              "maxOutputTokens": {
+                "type": "number",
+                "minimum": 1
+              },
+              "toolCalling": {
+                "type": "boolean"
+              },
+              "imageInput": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run check:boundaries",
+    "verify": "npm run check && npm run build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src test scripts esbuild.mjs",
+    "test": "node --import tsx --test test/**/*.test.ts",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
+    "package": "npm run verify && vsce package --no-dependencies",
+    "package:target": "node scripts/package-platform.mjs",
+    "check:vsix": "node scripts/check-vsix.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/vscode": "^1.136.0",
+    "@vscode/vsce": "3.9.2",
+    "esbuild": "0.28.2",
+    "eslint": "9.35.0",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.42.0"
+  }
+}

@@ -1,0 +1,2 @@
+import * as vscode from "vscode";
+export async function offerSetup(context:vscode.ExtensionContext){if(context.globalState.get("swobu.onboarding.seen"))return;await context.globalState.update("swobu.onboarding.seen",true);const choice=await vscode.window.showInformationMessage("Use your Swobu routes in VS Code, Claude Code, and Codex.","Set Up","Not now");if(choice==="Set Up")await vscode.commands.executeCommand("swobu.setup");}
