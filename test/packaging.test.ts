@@ -16,7 +16,7 @@ test("release surface has one portable package path and no runtime acquisition",
 });
 test("release changes distribution metadata and only the authorized runtime and request control surfaces",()=>{
  const manifest=JSON.parse(readFileSync("package.json","utf8"));
- assert.equal(manifest.version,"0.1.4");
+ assert.equal(manifest.version,"0.1.5");
  assert.equal(manifest.engines.vscode,"^1.135.0");
  assert.equal(manifest.preview,undefined);
  assert.equal(manifest.activationEvents,undefined);
@@ -25,7 +25,7 @@ test("release changes distribution metadata and only the authorized runtime and 
  assert.equal(manifest.keywords.length,30);
  assert.equal(new Set(manifest.keywords).size,30);
  for(const keyword of ["language model provider","llm router","provider switcher","github copilot","byok","openrouter","ollama","local llm"]){assert.ok(manifest.keywords.includes(keyword),keyword);}
- const frozenRuntimeDiff=spawnSync("git",["diff","--quiet","v0.1.2","--","src/models.ts","src/responses/errors.ts","src/tokenCount.ts","src/settings.ts"],{encoding:"utf8",shell:false});
+ const frozenRuntimeDiff=spawnSync("git",["diff","--quiet","v0.1.2","--","src/models.ts","src/tokenCount.ts","src/settings.ts"],{encoding:"utf8",shell:false});
  assert.equal(frozenRuntimeDiff.status,0,`Frozen provider or request-path source differs from v0.1.2: ${frozenRuntimeDiff.stderr}`);
 });
 test("CI qualifies and release publishes the same manifest-derived VSIX",()=>{

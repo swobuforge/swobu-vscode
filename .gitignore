@@ -7,3 +7,7 @@ checkpoint/
 
 .out/
 .vscode-test/
+.vscode-agent-e2e/
+test/e2e/agent/_artifacts/
+.ui-e2e-work/
+.ui-probe.*/

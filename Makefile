@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
-.PHONY: help build check verify package integration release-prepare release-package release-smoke publish-marketplace publish-openvsx
+.PHONY: help build check verify package integration e2e-agent release-prepare release-package release-smoke publish-marketplace publish-openvsx
 help:
-	@printf 'swobu-vscode entrypoints:\n  build\n  check\n  verify\n  package\n  integration\n  release-prepare\n  release-package\n  release-smoke VSIX=<path|marketplace>\n  publish-marketplace VSIX=<path>\n  publish-openvsx VSIX=<path>\n'
+	@printf 'swobu-vscode entrypoints:\n  build\n  check\n  verify\n  package\n  integration\n  e2e-agent VSIX=<path>\n  release-prepare\n  release-package\n  release-smoke VSIX=<path|marketplace>\n  publish-marketplace VSIX=<path>\n  publish-openvsx VSIX=<path>\n'
 build:
 	@npm run build
 check:
@@ -12,6 +12,9 @@ package:
 	@npm run package
 integration:
 	@npm run test:integration
+e2e-agent:
+	@test -n "$(VSIX)" || { echo 'VSIX is required'; exit 2; }
+	@npm run test:e2e:agent -- "$(VSIX)"
 release-prepare:
 	@npm run release:prepare
 release-package:

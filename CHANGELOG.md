@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.5
+
+- Accept VS Code Agent continuation state in its actual embedded assistant-response shape.
+- Accept VS Code Agent's empty-name sentinel on tool-result messages without erasing real named-participant identity.
+- Accept standard Responses API reasoning lifecycle items while continuing to stream visible answer text and tool calls.
+- Preserve Swobu's structured error explanation in the error shown by VS Code instead of reducing it to an HTTP status.
+- Correctly classify the test-extension Language Model API lane as integration testing, not Agent E2E.
+
 ## 0.1.4
 
 - Support VS Code and compatible Open VSX clients from version 1.135 onward.

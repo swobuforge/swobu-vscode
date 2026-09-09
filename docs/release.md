@@ -6,9 +6,13 @@ Identity: `swobu.swobu`, publisher `swobu`, public source target `swobuforge/swo
 
 Run the same repository scripts locally and in CI. Qualification produces one platform-independent VSIX and package inspection rejects target metadata, private runtime binaries, development sources and secret-like files. Swobu itself remains an independently installed product.
 
-`make verify` runs source proof. `make integration` runs real VS Code API proof. For development-only real Swobu proof, set `SWOBU_TEST_BINARY` to an explicitly built local executable. This is not runtime release qualification.
+`make verify` runs source proof. `make integration` runs VS Code Language Model
+API integration proof from a test extension. It is not Agent E2E: it bypasses
+the shipped Chat/Agent surface and its actual history construction. For
+development-only real Swobu proof, set `SWOBU_TEST_BINARY` to an explicitly
+built local executable. This is not runtime release qualification.
 
-`make release-prepare` rejects dirty/tag/version/provenance drift. `make release-package` creates and inspects the sole VSIX. Run `make release-smoke VSIX=./swobu-<version>.vsix` to install that manifest-versioned artifact into a clean profile. Full installed native Agent and canonical evidence proof is mandatory before release and must not be replaced by development-host smoke. npm scripts remain package-private mechanics behind these Make targets.
+`make release-prepare` rejects dirty/tag/version/provenance drift. `make release-package` creates and inspects the sole VSIX. Run `make release-smoke VSIX=./swobu-<version>.vsix` to install that manifest-versioned artifact into a clean profile. Despite its historical `journey` labels, this smoke currently remains Language Model API integration proof. Full installed native Agent UI and canonical evidence proof is mandatory before release and must not be replaced by it. npm scripts remain package-private mechanics behind these Make targets.
 
 Publishing consumes the exact qualified VSIX files listed in `.out/release/SHA256SUMS.txt`. Do not regenerate artifacts between qualification and upload.
 

@@ -48,25 +48,30 @@
 - Claim and falsifying check: metadata/locales and VSIX contents pass package
   tests; no deferred screenshots ship or leave broken README links; links
   resolve; installed exact VSIX and public-ID smoke pass.
-- Headless Agent grammar: a clean-profile installed VSIX discovers the native
-  Swobu model through `vscode.lm`, sends a coding task with required tools,
-  consumes two streamed tool calls plus `stateful_marker`, returns ordered
-  multimodal tool results, sends the marker as `previous_response_id`, and
-  receives the final streamed answer. The runtime-only System role is proven at
-  the adapter seam because VS Code does not let an external stable-API test
-  caller construct it; the shipped manifest does not opt into a proposal solely
-  for testing.
-- Exact-artifact state: immutable `v0.1.4` at commit `75c8908` passes 50 tests,
-  archive inspection, Linux and Windows same-byte qualification, and
-  clean-profile direct Agent grammar and attach-to-real-Swobu journeys on the
-  minimum supported VS Code 1.135.0.
+- Language Model API integration: a clean-profile installed VSIX discovers the
+  native Swobu model through `vscode.lm`, sends synthetic tool history, consumes
+  streamed tool calls plus `stateful_marker`, and sends continuation state as
+  `previous_response_id`. This is not Agent E2E because a test extension creates
+  the history and calls `model.sendRequest()` directly.
+- Real Agent E2E: the package now owns `make e2e-agent`, which installs the VSIX
+  into a dedicated VS Code 1.135 profile and drives the shipped Chat/Agent UI.
+  The unattended journey passed with the installed `0.1.5` VSIX: the selected
+  Swobu route received two provider turns, Agent edited the fixture, ran its
+  test, and rendered the success marker. VS Code's shipped smoke-driver and
+  unsafe-test-token seams keep qualification signed out with no GitHub
+  inference dependency.
+- Exact-artifact state: immutable `v0.1.4` passed archive inspection and
+  Linux/Windows Language Model API integration checks, but real VS Code Agent
+  use failed. The prior task text incorrectly promoted a test-extension call to
+  an Agent journey; that claim is withdrawn.
   The extension-start journey reaches the native **Start Swobu** notification,
   whose action has no supported headless extension-test API; it remains a
   manual UI smoke instead of a misleading automated artifact gate.
-- Public path: clean-profile Marketplace installation of `0.1.4` discovers and
-  selects the `code` route, completes the headless multi-turn tool journey,
-  observes fallback and cancellation, and leaves ordinary Swobu independently
-  usable. The visible Agent file-change walkthrough remains manual dogfooding.
+- Public path: clean-profile Marketplace installation of `0.1.4` discovers the
+  route through the Language Model API and exercises synthetic tool history,
+  fallback, and cancellation. It does not prove Chat/Agent behavior. Actual
+  Agent dogfooding exposed failures on its embedded `stateful_marker` grammar
+  and Responses reasoning lifecycle.
 - Remaining work: +7/+14-day snapshots remain scheduled continuation after
   publication.
 - Deferred screenshot backlog: add a genuine Agent-success hero, a tightly
@@ -80,16 +85,19 @@
   corrects the unsupported VS Code engine floor, with one explicit
   runtime exception: protocol 9 alone establishes compatibility; version is
   diagnostic metadata.
-- Next bounded step: capture the scheduled +7/+14-day measurements.
-  Screenshots remain deferred by the user's release amendment.
+- Next bounded step: qualify a corrected patch through a request originating in
+  the real VS Code Chat/Agent UI against any route visibly sourced from Swobu,
+  including tool calls, continuation, file edit, and test execution. Backend
+  model identity is not an acceptance requirement. Screenshots remain deferred
+  by the user's release amendment.
 - Proof pointers: `test/packaging.test.ts`, `scripts/check-vsix.mjs`, Marketplace
   publisher Acquisition Trend, GitHub traffic APIs.
 - Open risks: manual/UI proof of the **Start Swobu** notification action.
-- Open VSX decision: stop. Code-server 4.136.2 / Code 1.136.1 installs and
-  activates the exact unchanged VSIX, but its Agent model picker exposes only
-  Copilot sign-in and does not expose the contributed Swobu model. The RFC's
-  meaningful unchanged-functionality smoke therefore fails; do not publish or
-  reopen compatibility engineering under this RFC.
+- Open VSX decision: publish the same qualified artifact, as subsequently
+  authorized by the user. Code-server 4.136.2 / Code 1.136.1 previously
+  installed and activated the VSIX but did not expose Swobu in its Agent model
+  picker; publication therefore does not claim code-server Agent compatibility
+  and does not authorize compatibility engineering.
 
 ## Credential ownership
 
@@ -122,8 +130,8 @@ Baseline captured 2026-09-09 before `0.1.3` publication:
 Post-publication public snapshot on 2026-09-09:
 
 - Marketplace: validated `0.1.4`, engine `^1.135.0`, 2 installs, 19 downloads,
-  and no public rating statistic exposed. Public-ID installation and the native
-  Agent journey passed on VS Code 1.135.0.
+  and no public rating statistic exposed. Public-ID installation passed; the
+  native Agent journey did not pass and remains the active qualification gate.
 - GitHub traffic: 0 views, 0 clones, and no popular referrers in the available
   14-day window.
 - Open VSX: no public `swobu.swobu` listing; unchanged-artifact functional

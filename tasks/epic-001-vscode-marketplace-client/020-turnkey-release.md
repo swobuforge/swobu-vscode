@@ -3,8 +3,8 @@
 Owner: extension distribution; coordinating scope includes the independently
 installed Swobu runtime and public distribution.
 
-Authority: `docs/00-inbox/RFC_ Swobu VS Code — Turnkey Release.md`, developer
-workflow, and release law.
+Authority: `../../README.md`, `../../docs/release.md`, developer workflow, and
+release law. The original inbox RFC is historical input only.
 
 ## Outcome
 
@@ -53,22 +53,30 @@ remain release gates.
 - OIDC tooling recognizes Marketplace trusted publishing and rejects
   simultaneous PAT authentication.
 
-The public Marketplace exposes validated `0.1.4` with engine `^1.135.0`.
-Immutable GitHub Release bytes passed Linux and Windows qualification plus a
-clean-profile Marketplace install and native Agent journey on VS Code 1.135.0.
+The public Marketplace exposes `0.1.4` with engine `^1.135.0`. Immutable GitHub
+Release bytes passed Linux and Windows installation plus Language Model API
+integration checks. Those checks did not enter the real Chat/Agent surface and
+must not be described as a native Agent journey. Real Agent use subsequently
+failed on embedded continuation state and legitimate reasoning output.
 
 ## Remaining release transaction
 
-None. The Marketplace OIDC exchange still returns 404, so the repository-vaulted
-PAT fallback published the checksum-qualified GitHub Release asset. Open VSX
-stopped under the RFC's unchanged-functionality rule.
+- `0.1.5` passed the real VS Code Chat/Agent UI journey with an installed Swobu
+  model, reasoning, tool execution, continuation, file edit, and test result.
+- Publish that qualified patch as an immutable release and verify both public
+  registry versions.
+- Marketplace OIDC still returns 404; the registered repository-vaulted PAT is
+  the proven fallback.
 
 ## Distribution boundary
 
-- Open VSX publication stopped: code-server installs and activates the exact
-  VSIX but does not expose Swobu in its Agent model picker. Compatibility
-  engineering is outside this RFC.
+- A prior code-server smoke installed and activated the exact VSIX but did not
+  expose Swobu in its Agent model picker. The user subsequently authorized
+  publishing the qualified artifact to Open VSX as a distribution surface.
+  Publication does not claim code-server Agent compatibility, and no
+  compatibility engineering is part of this release.
 
 ## Next bounded step
 
-Capture the scheduled +7/+14-day distribution measurements.
+Verify the published `0.1.5` version on both registries before distribution
+measurement continues.

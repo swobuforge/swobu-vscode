@@ -2,7 +2,7 @@
   "name": "swobu",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "swobu",
   "pricing": "Free",
   "galleryBanner": {
@@ -158,6 +158,7 @@
     "package": "npm run verify && vsce package --no-dependencies",
     "check:vsix": "node scripts/check-vsix.mjs",
     "test:integration": "npm run build && node scripts/test-integration.mjs",
+    "test:e2e:agent": "node scripts/agent-e2e/run.mjs",
     "release:prepare": "node scripts/release-prepare.mjs",
     "release:package": "node scripts/package-release.mjs",
     "release:check": "node scripts/check-vsix.mjs",
