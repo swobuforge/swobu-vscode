@@ -53,7 +53,10 @@ remain release gates.
 - OIDC tooling recognizes Marketplace trusted publishing and rejects
   simultaneous PAT authentication.
 
-The public Marketplace exposes `0.1.4` with engine `^1.135.0`. Immutable GitHub
+The public Marketplace exposes `0.1.5` with engine `^1.135.0`, but a stale
+pre-qualification upload completed asynchronously and made generated local UI
+profiles part of that immutable artifact. `0.1.6` is the clean corrective
+release. Immutable GitHub
 Release bytes passed Linux and Windows installation plus Language Model API
 integration checks. Those checks did not enter the real Chat/Agent surface and
 must not be described as a native Agent journey. Real Agent use subsequently
@@ -63,8 +66,8 @@ failed on embedded continuation state and legitimate reasoning output.
 
 - `0.1.5` passed the real VS Code Chat/Agent UI journey with an installed Swobu
   model, reasoning, tool execution, continuation, file edit, and test result.
-- Publish that qualified patch as an immutable release and verify both public
-  registry versions.
+- Qualify and publish `0.1.6` with explicit generated-profile exclusions, then
+  verify both public registry artifacts.
 - Marketplace OIDC still returns 404; the registered repository-vaulted PAT is
   the proven fallback.
 

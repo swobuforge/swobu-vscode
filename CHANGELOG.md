@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.6
+
+- Exclude generated VS Code Agent profiles and UI probe workspaces from release artifacts.
+- Reject hidden development-state directories during VSIX inspection.
+
 ## 0.1.5
 
 - Accept VS Code Agent continuation state in its actual embedded assistant-response shape.

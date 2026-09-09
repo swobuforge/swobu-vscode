@@ -21,7 +21,7 @@ runs unattended through VS Code's stock smoke-test driver and test-token seam;
 it does not require or persist a GitHub sign-in:
 
 ```sh
-make e2e-agent VSIX=./swobu-0.1.5.vsix
+make e2e-agent VSIX=./swobu-<version>.vsix
 ```
 
 `e2e-agent` drives the real Chat view, fails unless its selected model is

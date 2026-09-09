@@ -15,3 +15,6 @@ runtime-manifest.json
 .out/**
 docs/**
 tasks/**
+.vscode-agent-e2e/**
+.ui-e2e-work/**
+.ui-probe.*/**

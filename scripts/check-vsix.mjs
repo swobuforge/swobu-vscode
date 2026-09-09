@@ -15,6 +15,7 @@ await new Promise((resolve,reject)=>yauzl.fromBuffer(archive,{lazyEntries:true},
 function required(path){const value=entries.get(path);if(!value)throw new Error(`Missing ${path}`);return value;}
 const xml=required("extension.vsixmanifest").toString();if(xml.includes("TargetPlatform="))throw new Error("VSIX must be platform-independent");
 for(const name of entries.keys())if(name.startsWith("extension/runtime/")||name==="extension/runtime-manifest.json")throw new Error(`Private Swobu runtime residue: ${name}`);
+for(const name of entries.keys())if(name.startsWith("extension/."))throw new Error(`Hidden development state shipped unexpectedly: ${name}`);
 for(const name of ["dist/extension.js","readme.md","changelog.md","LICENSE.txt","assets/icon.png","package.nls.json"])required(`extension/${name}`);
 for(const name of entries.keys())if(name.startsWith("extension/assets/screenshots/"))throw new Error(`Deferred screenshot shipped unexpectedly: ${name}`);
 for(const name of entries.keys())if(/(?:^|\/)(?:\.git|\.env|\.out|checkpoint|docs|node_modules|scripts|tasks|test|src)(?:\/|$)|\.key$|\.ts$/.test(name))throw new Error(`Forbidden package entry ${name}`);
