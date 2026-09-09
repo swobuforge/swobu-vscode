@@ -53,35 +53,22 @@ remain release gates.
 - OIDC tooling recognizes Marketplace trusted publishing and rejects
   simultaneous PAT authentication.
 
-The public Marketplace exposes validated `0.1.3`. Its immutable artifact has an
-unnecessarily high VS Code 1.136 engine floor. Corrected `0.1.4` source proves
-the same native model journey on VS Code 1.135.0 and requires a separately
-qualified artifact and publication.
+The public Marketplace exposes validated `0.1.4` with engine `^1.135.0`.
+Immutable GitHub Release bytes passed Linux and Windows qualification plus a
+clean-profile Marketplace install and native Agent journey on VS Code 1.135.0.
 
 ## Remaining release transaction
 
-1. Commit, push, and tag corrected `v0.1.4` source.
-2. Build one VSIX from that exact tree and bind its checksum to the release
-   transaction.
-3. Pass archive inspection plus Linux `attach` and `extension-start` installed
-   journeys on those bytes.
-4. Pass Windows checksum verification and the same installed journeys on those
-   bytes using the public PowerShell installer.
-5. Configure and execute Marketplace OIDC trusted publication; create the
-   GitHub Release and publish to Open VSX when credentialed without rebuilding.
-6. Run the public-ID smoke: fresh-profile install, public copy/icon/metadata,
-   route selection, Agent tool action, second inference, cancellation,
-   fallback, and independently usable ordinary Swobu.
+None. The Marketplace OIDC exchange still returns 404, so the repository-vaulted
+PAT fallback published the checksum-qualified GitHub Release asset. Open VSX
+stopped under the RFC's unchanged-functionality rule.
 
-## Blockers
+## Distribution boundary
 
-- Corrected `0.1.4` requires the authorized immutable git/tag/release
-  transaction before artifact qualification.
 - Open VSX publication stopped: code-server installs and activates the exact
   VSIX but does not expose Swobu in its Agent model picker. Compatibility
   engineering is outside this RFC.
 
 ## Next bounded step
 
-Execute the corrected immutable release transaction without changing qualified
-VSIX bytes between testing and publication.
+Capture the scheduled +7/+14-day distribution measurements.

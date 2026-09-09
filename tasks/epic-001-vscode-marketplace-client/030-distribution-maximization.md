@@ -56,14 +56,17 @@
   the adapter seam because VS Code does not let an external stable-API test
   caller construct it; the shipped manifest does not opt into a proposal solely
   for testing.
-- Exact-artifact state: `make package` passes with 50 tests. The rebuilt VSIX
-  passes clean-profile direct Agent grammar and attach-to-real-Swobu journeys.
+- Exact-artifact state: immutable `v0.1.4` at commit `75c8908` passes 50 tests,
+  archive inspection, Linux and Windows same-byte qualification, and
+  clean-profile direct Agent grammar and attach-to-real-Swobu journeys on the
+  minimum supported VS Code 1.135.0.
   The extension-start journey reaches the native **Start Swobu** notification,
   whose action has no supported headless extension-test API; it remains a
   manual UI smoke instead of a misleading automated artifact gate.
-- Manual path: install from Marketplace, select the `code` route, complete a
-  visible Agent file change, observe fallback, and verify ordinary Swobu stays
-  independently usable.
+- Public path: clean-profile Marketplace installation of `0.1.4` discovers and
+  selects the `code` route, completes the headless multi-turn tool journey,
+  observes fallback and cancellation, and leaves ordinary Swobu independently
+  usable. The visible Agent file-change walkthrough remains manual dogfooding.
 - Remaining work: +7/+14-day snapshots remain scheduled continuation after
   publication.
 - Deferred screenshot backlog: add a genuine Agent-success hero, a tightly
@@ -77,9 +80,8 @@
   corrects the unsupported VS Code engine floor, with one explicit
   runtime exception: protocol 9 alone establishes compatibility; version is
   diagnostic metadata.
-- Next bounded step: qualify and publish the corrected image-free artifact, then record
-  the authenticated Marketplace baseline. Screenshots remain deferred by the
-  user's release amendment.
+- Next bounded step: capture the scheduled +7/+14-day measurements.
+  Screenshots remain deferred by the user's release amendment.
 - Proof pointers: `test/packaging.test.ts`, `scripts/check-vsix.mjs`, Marketplace
   publisher Acquisition Trend, GitHub traffic APIs.
 - Open risks: manual/UI proof of the **Start Swobu** notification action.
@@ -119,8 +121,9 @@ Baseline captured 2026-09-09 before `0.1.3` publication:
 
 Post-publication public snapshot on 2026-09-09:
 
-- Marketplace: validated `0.1.3`, 2 installs, 11 downloads, no public rating
-  statistic exposed.
+- Marketplace: validated `0.1.4`, engine `^1.135.0`, 2 installs, 19 downloads,
+  and no public rating statistic exposed. Public-ID installation and the native
+  Agent journey passed on VS Code 1.135.0.
 - GitHub traffic: 0 views, 0 clones, and no popular referrers in the available
   14-day window.
 - Open VSX: no public `swobu.swobu` listing; unchanged-artifact functional
