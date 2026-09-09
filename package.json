@@ -1,11 +1,11 @@
 {
   "name": "swobu",
-  "displayName": "LLM Router for VS Code, Claude Code & Codex \u2014 Swobu",
-  "description": "Use your Swobu routes in VS Code and connect Claude Code or Codex without replacing their interfaces.",
+  "displayName": "%displayName%",
+  "description": "%description%",
   "version": "0.1.0",
-  "publisher": "swobuforge",
+  "publisher": "swobu",
   "preview": true,
-  "license": "Apache-2.0",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.136.0"
   },
@@ -14,13 +14,21 @@
     "Other"
   ],
   "keywords": [
+    "language model provider",
     "llm router",
-    "ai gateway",
+    "model router",
     "claude code",
     "codex",
-    "openai compatible",
-    "model routing",
-    "local ai"
+    "coding agent",
+    "ai gateway",
+    "failover",
+    "fallback",
+    "openrouter",
+    "ollama",
+    "bedrock",
+    "azure openai",
+    "local llm",
+    "provider switcher"
   ],
   "extensionKind": [
     "workspace"
@@ -56,32 +64,32 @@
     "commands": [
       {
         "command": "swobu.open",
-        "title": "Open",
+        "title": "%command.0%",
         "category": "Swobu"
       },
       {
         "command": "swobu.setup",
-        "title": "Set Up",
+        "title": "%command.1%",
         "category": "Swobu"
       },
       {
         "command": "swobu.connectClaude",
-        "title": "Connect Claude Code",
+        "title": "%command.2%",
         "category": "Swobu"
       },
       {
         "command": "swobu.connectCodex",
-        "title": "Connect Codex",
+        "title": "%command.3%",
         "category": "Swobu"
       },
       {
         "command": "swobu.configureModel",
-        "title": "Configure Model",
+        "title": "%command.4%",
         "category": "Swobu"
       },
       {
         "command": "swobu.refreshModels",
-        "title": "Refresh Models",
+        "title": "%command.5%",
         "category": "Swobu"
       }
     ],
@@ -92,19 +100,19 @@
           "type": "string",
           "default": "http://127.0.0.1:7926",
           "scope": "machine",
-          "description": "Swobu daemon endpoint."
+          "description": "%configuration.endpoint.description%"
         },
         "swobu.executable": {
           "type": "string",
           "default": "",
           "scope": "machine",
-          "description": "Optional absolute path to a compatible Swobu executable. The bundled executable is used when empty."
+          "description": "%configuration.executable.description%"
         },
         "swobu.modelOverrides": {
           "type": "object",
           "default": {},
           "scope": "machine",
-          "description": "Capability and token-limit overrides keyed by <workspace>/<route>.",
+          "description": "%configuration.modelOverrides.description%",
           "additionalProperties": {
             "type": "object",
             "properties": {
@@ -138,17 +146,37 @@
     "test": "node --import tsx --test test/**/*.test.ts",
     "check:boundaries": "node scripts/check-boundaries.mjs",
     "package": "npm run verify && vsce package --no-dependencies",
-    "package:target": "node scripts/package-platform.mjs",
-    "check:vsix": "node scripts/check-vsix.mjs"
+    "check:vsix": "node scripts/check-vsix.mjs",
+    "test:integration": "npm run build && node scripts/test-integration.mjs",
+    "release:prepare": "node scripts/release-prepare.mjs",
+    "release:package": "node scripts/package-release.mjs",
+    "release:check": "node scripts/check-vsix.mjs",
+    "release:smoke": "node scripts/release-smoke.mjs",
+    "publish:marketplace": "node scripts/publish.mjs marketplace",
+    "publish:openvsx": "node scripts/publish.mjs openvsx"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
     "@types/vscode": "^1.136.0",
-    "@vscode/vsce": "3.9.2",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "3.9.3-12",
     "esbuild": "0.28.2",
     "eslint": "9.35.0",
+    "ovsx": "^0.10.4",
     "tsx": "4.20.5",
     "typescript": "5.9.2",
-    "typescript-eslint": "8.42.0"
-  }
+    "typescript-eslint": "8.42.0",
+    "vscode": "file:test/vscode-stub",
+    "yauzl": "^3.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swobuforge/swobu-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/swobuforge/swobu-vscode/issues"
+  },
+  "homepage": "https://swobu.com",
+  "l10n": "./l10n",
+  "icon": "assets/icon.png"
 }

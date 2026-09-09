@@ -1,0 +1,13 @@
+{
+  "displayName": "Roteador LLM para VS Code, Claude Code e Codex — Swobu",
+  "description": "Continue usando VS Code Agent, Claude Code e Codex. Encaminhe solicitações de modelo pelo endpoint Swobu local com escolha de provedor e alternativa.",
+  "command.0": "Abrir",
+  "command.1": "Configurar",
+  "command.2": "Conectar Claude Code",
+  "command.3": "Conectar Codex",
+  "command.4": "Configurar modelo",
+  "command.5": "Atualizar modelos",
+  "configuration.endpoint.description": "Endpoint do daemon do Swobu.",
+  "configuration.executable.description": "Caminho absoluto opcional para um executável Swobu compatível neste host de extensão. Quando vazio, usa a instalação normal no PATH.",
+  "configuration.modelOverrides.description": "Substituições de recursos e limites de tokens identificadas por <workspace>/<route>."
+}

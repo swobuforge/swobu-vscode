@@ -1,2 +1,4 @@
-import type * as vscode from "vscode";
-export function estimateTokens(input:string|vscode.LanguageModelChatRequestMessage):number { const text=typeof input==="string"?input:input.content.map(value=>JSON.stringify(value)).join(""); let units=0; for(const char of text) units+=char.codePointAt(0)!>127?2:1; return Math.max(1,Math.ceil(units/4)+4); }
+import * as vscode from "vscode";
+const IMAGE_PART_TOKENS=1024;
+export function estimateTokens(input:string|vscode.LanguageModelChatRequestMessage):number { if(typeof input==="string")return textTokens(input)+4;let total=4;for(const part of input.content){if(part instanceof vscode.LanguageModelTextPart)total+=textTokens(part.value);else if(part instanceof vscode.LanguageModelDataPart)total+=IMAGE_PART_TOKENS;else if(part instanceof vscode.LanguageModelToolCallPart)total+=textTokens(part.name)+textTokens(JSON.stringify(part.input))+8;else if(part instanceof vscode.LanguageModelToolResultPart){total+=8;for(const value of part.content)total+=value instanceof vscode.LanguageModelTextPart?textTokens(value.value):16;}else total+=16;}return Math.max(1,total); }
+function textTokens(text:string):number { let units=0;for(const char of text)units+=char.codePointAt(0)!>127?2:1;return Math.ceil(units/4); }

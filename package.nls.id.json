@@ -1,0 +1,13 @@
+{
+  "displayName": "Router LLM untuk VS Code, Claude Code, dan Codex — Swobu",
+  "description": "Tetap gunakan VS Code Agent, Claude Code, dan Codex. Rutekan permintaan model melalui endpoint Swobu lokal dengan pilihan penyedia dan fallback.",
+  "command.0": "Buka",
+  "command.1": "Siapkan",
+  "command.2": "Hubungkan Claude Code",
+  "command.3": "Hubungkan Codex",
+  "command.4": "Konfigurasi model",
+  "command.5": "Segarkan model",
+  "configuration.endpoint.description": "Endpoint daemon Swobu.",
+  "configuration.executable.description": "Jalur absolut opsional ke berkas Swobu yang kompatibel pada host ekstensi ini. Jika kosong, instalasi normal di PATH akan digunakan.",
+  "configuration.modelOverrides.description": "Pengesampingan kemampuan dan batas token dengan kunci <workspace>/<route>."
+}

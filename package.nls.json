@@ -1,0 +1,13 @@
+{
+  "displayName": "LLM Router for VS Code, Claude Code & Codex — Swobu",
+  "description": "Keep VS Code Agent, Claude Code and Codex. Route model requests through your local Swobu endpoint with provider choice and fallback.",
+  "command.0": "Open",
+  "command.1": "Set Up",
+  "command.2": "Connect Claude Code",
+  "command.3": "Connect Codex",
+  "command.4": "Configure Model",
+  "command.5": "Refresh Models",
+  "configuration.endpoint.description": "Swobu daemon endpoint.",
+  "configuration.executable.description": "Optional absolute path to a compatible Swobu executable on this extension host. The normal PATH installation is used when empty.",
+  "configuration.modelOverrides.description": "Capability and token-limit overrides keyed by <workspace>/<route>."
+}

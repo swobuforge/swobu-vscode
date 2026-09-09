@@ -1,0 +1,13 @@
+{
+  "displayName": "LLM-Router für VS Code, Claude Code und Codex — Swobu",
+  "description": "Behalte VS Code Agent, Claude Code und Codex. Leite Modellanfragen über deinen lokalen Swobu-Endpunkt und wähle Anbieter und Fallback.",
+  "command.0": "Öffnen",
+  "command.1": "Einrichten",
+  "command.2": "Claude Code verbinden",
+  "command.3": "Codex verbinden",
+  "command.4": "Modell konfigurieren",
+  "command.5": "Modelle aktualisieren",
+  "configuration.endpoint.description": "Endpunkt des Swobu-Daemons.",
+  "configuration.executable.description": "Optionaler absoluter Pfad zu einer kompatiblen Swobu-Programmdatei auf diesem Erweiterungshost. Ist das Feld leer, wird die normale Installation im PATH verwendet.",
+  "configuration.modelOverrides.description": "Funktions- und Tokenlimitüberschreibungen mit dem Schlüssel <workspace>/<route>."
+}

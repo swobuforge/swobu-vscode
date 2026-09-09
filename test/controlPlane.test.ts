@@ -1,3 +1,4 @@
 import assert from "node:assert/strict";import test from "node:test";import {requireCompatibleStatus,CONTROL_PLANE_PROTOCOL} from "../src/controlPlane.js";
-test("compatible protocol passes",()=>assert.doesNotThrow(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:CONTROL_PLANE_PROTOCOL})));
-test("missing and stale protocols fail",()=>{assert.throws(()=>requireCompatibleStatus({state:"healthy"}),/incompatible/);assert.throws(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:8}),/incompatible/);});
+test("compatible protocol and minimum version pass",()=>assert.doesNotThrow(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:CONTROL_PLANE_PROTOCOL,swobu_version:"v2.0.0"})));
+test("missing and stale protocols fail",()=>{assert.throws(()=>requireCompatibleStatus({state:"healthy",swobu_version:"2.0.0"}),/incompatible/);assert.throws(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:8,swobu_version:"2.0.0"}),/incompatible/);});
+test("missing and stale versions fail with update guidance",()=>{assert.throws(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:CONTROL_PLANE_PROTOCOL}),/requires Swobu 2\.0\.0/);assert.throws(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:CONTROL_PLANE_PROTOCOL,swobu_version:"1.9.9"}),/requires Swobu 2\.0\.0/);});

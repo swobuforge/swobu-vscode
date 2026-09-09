@@ -1,0 +1,13 @@
+{
+  "displayName": "Enrutador LLM para VS Code, Claude Code y Codex — Swobu",
+  "description": "Conserva VS Code Agent, Claude Code y Codex. Enruta las solicitudes de modelos por tu endpoint Swobu local con selección de proveedor y alternativa.",
+  "command.0": "Abrir",
+  "command.1": "Configurar",
+  "command.2": "Conectar Claude Code",
+  "command.3": "Conectar Codex",
+  "command.4": "Configurar modelo",
+  "command.5": "Actualizar modelos",
+  "configuration.endpoint.description": "Endpoint del daemon de Swobu.",
+  "configuration.executable.description": "Ruta absoluta opcional a un ejecutable de Swobu compatible en este host de extensiones. Si se deja vacía, se usa la instalación normal del PATH.",
+  "configuration.modelOverrides.description": "Sustituciones de capacidades y límites de tokens identificadas por <workspace>/<route>."
+}

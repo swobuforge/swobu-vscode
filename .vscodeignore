@@ -1,4 +1,5 @@
 .github/**
+.gitignore
 test/**
 src/**
 scripts/**
@@ -7,4 +8,10 @@ tsconfig.json
 eslint.config.mjs
 esbuild.mjs
 Makefile
+checkpoint/**
+runtime/**
+licenses/**
 runtime-manifest.json
+.out/**
+docs/**
+tasks/**

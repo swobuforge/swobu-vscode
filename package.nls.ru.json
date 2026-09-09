@@ -1,0 +1,13 @@
+{
+  "displayName": "Маршрутизатор LLM для VS Code, Claude Code и Codex — Swobu",
+  "description": "Продолжайте использовать VS Code Agent, Claude Code и Codex. Направляйте запросы к моделям через локальную конечную точку Swobu с выбором поставщика и резервного варианта.",
+  "command.0": "Открыть",
+  "command.1": "Настроить",
+  "command.2": "Подключить Claude Code",
+  "command.3": "Подключить Codex",
+  "command.4": "Настроить модель",
+  "command.5": "Обновить модели",
+  "configuration.endpoint.description": "Конечная точка демона Swobu.",
+  "configuration.executable.description": "Необязательный абсолютный путь к совместимому исполняемому файлу Swobu на этом узле расширения. Если поле пусто, используется обычная установка из PATH.",
+  "configuration.modelOverrides.description": "Переопределения возможностей и ограничений токенов с ключом <workspace>/<route>."
+}

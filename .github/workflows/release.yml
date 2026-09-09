@@ -1,0 +1,119 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - run: npm ci
+      - run: make verify
+      - run: make release-prepare
+      - run: make release-package
+      - id: package
+        run: node -e "require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'vsix=swobu-' + require('./package.json').version + '.vsix\\n')"
+      - run: curl -fsSL https://swobu.com/install.sh -o "${{ runner.temp }}/install-swobu.sh" && sh "${{ runner.temp }}/install-swobu.sh" --bin-dir "${{ runner.temp }}/swobu-bin" --no-start
+      - run: xvfb-run -a make release-smoke VSIX="${{ steps.package.outputs.vsix }}"
+        env:
+          SWOBU_TEST_BINARY: ${{ runner.temp }}/swobu-bin/swobu
+      - run: sha256sum "${{ steps.package.outputs.vsix }}" > SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vsix
+          path: |
+            ${{ steps.package.outputs.vsix }}
+            SHA256SUMS.txt
+  github-release:
+    needs: windows-smoke
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: vsix
+          path: .out/release
+      - run: gh release create "$GITHUB_REF_NAME" .out/release/*.vsix .out/release/SHA256SUMS.txt --prerelease --generate-notes
+        env: {GH_TOKEN: '${{ github.token }}'}
+  publish-marketplace:
+    needs: windows-smoke
+    runs-on: ubuntu-latest
+    environment: marketplace
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: vsix
+          path: .out/release
+      - run: make publish-marketplace VSIX="$(find .out/release -maxdepth 1 -name '*.vsix' -print -quit)"
+  publish-openvsx:
+    needs: windows-smoke
+    runs-on: ubuntu-latest
+    environment: marketplace
+    env:
+      OVSX_PAT: ${{ secrets.OVSX_PAT }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: vsix
+          path: .out/release
+      - if: ${{ env.OVSX_PAT != '' }}
+        run: make publish-openvsx VSIX="$(find .out/release -maxdepth 1 -name '*.vsix' -print -quit)"
+  windows-smoke:
+    needs: package
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - shell: pwsh
+        run: choco install make --no-progress -y
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: vsix
+          path: .out/release
+      - shell: pwsh
+        run: |
+          Invoke-WebRequest https://swobu.com/install.ps1 -OutFile $env:RUNNER_TEMP/install-swobu.ps1
+          & $env:RUNNER_TEMP/install-swobu.ps1 -BinDir $env:RUNNER_TEMP/swobu-bin -NoStart
+      - shell: pwsh
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          $expected = ((Get-Content .out/release/SHA256SUMS.txt) -split '\s+')[0].ToLowerInvariant()
+          $actual = (Get-FileHash -Algorithm SHA256 ".out/release/swobu-$version.vsix").Hash.ToLowerInvariant()
+          if ($actual -ne $expected) { throw "downloaded VSIX checksum mismatch" }
+          make release-smoke VSIX=".out/release/swobu-$version.vsix"
+        env:
+          SWOBU_TEST_BINARY: ${{ runner.temp }}\swobu-bin\swobu.exe
+  public-smoke:
+    needs: [github-release, publish-marketplace]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - run: npm ci
+      - run: curl -fsSL https://swobu.com/install.sh -o "${{ runner.temp }}/install-swobu.sh" && sh "${{ runner.temp }}/install-swobu.sh" --bin-dir "${{ runner.temp }}/swobu-bin" --no-start
+      - run: xvfb-run -a make release-smoke VSIX=marketplace
+        env:
+          SWOBU_TEST_BINARY: ${{ runner.temp }}/swobu-bin/swobu

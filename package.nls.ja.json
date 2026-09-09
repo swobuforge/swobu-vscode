@@ -1,0 +1,13 @@
+{
+  "displayName": "VS Code、Claude Code、Codex 向け LLM ルーター — Swobu",
+  "description": "VS Code Agent、Claude Code、Codex はそのまま。ローカルの Swobu エンドポイント経由でモデルリクエストをルーティングし、プロバイダーとフォールバックを選べます。",
+  "command.0": "開く",
+  "command.1": "セットアップ",
+  "command.2": "Claude Code に接続",
+  "command.3": "Codex に接続",
+  "command.4": "モデルを設定",
+  "command.5": "モデルを更新",
+  "configuration.endpoint.description": "Swobu デーモンのエンドポイント。",
+  "configuration.executable.description": "この拡張機能ホスト上の互換性のある Swobu 実行ファイルへの絶対パス（省略可）。空の場合は通常の PATH インストールを使用します。",
+  "configuration.modelOverrides.description": "<workspace>/<route> をキーとする機能とトークン上限のオーバーライド。"
+}

@@ -1,0 +1,26 @@
+name: Verify
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: make verify
+      - run: xvfb-run -a make integration
+      - run: make release-package
+      - id: package
+        run: node -e "require('fs').appendFileSync(process.env.GITHUB_OUTPUT, 'vsix=swobu-' + require('./package.json').version + '.vsix\\n')"
+      - run: curl -fsSL https://swobu.com/install.sh -o "${{ runner.temp }}/install-swobu.sh" && sh "${{ runner.temp }}/install-swobu.sh" --bin-dir "${{ runner.temp }}/swobu-bin" --no-start
+      - run: xvfb-run -a make release-smoke VSIX="${{ steps.package.outputs.vsix }}"
+        env:
+          SWOBU_TEST_BINARY: ${{ runner.temp }}/swobu-bin/swobu

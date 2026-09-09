@@ -1,1 +1,0 @@
-import {spawnSync} from "node:child_process";const target=process.argv[2];if(!target)throw new Error("usage: npm run package:target -- <vsce-target>");const result=spawnSync("npx",["vsce","package","--no-dependencies","--target",target],{stdio:"inherit",shell:false});process.exitCode=result.status??1;

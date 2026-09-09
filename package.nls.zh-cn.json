@@ -1,0 +1,13 @@
+{
+  "displayName": "VS Code、Claude Code 与 Codex 的 LLM 路由器 — Swobu",
+  "description": "保留 VS Code Agent、Claude Code 和 Codex。通过本地 Swobu 端点路由模型请求，并选择提供商和备用方案。",
+  "command.0": "打开",
+  "command.1": "设置",
+  "command.2": "连接 Claude Code",
+  "command.3": "连接 Codex",
+  "command.4": "配置模型",
+  "command.5": "刷新模型",
+  "configuration.endpoint.description": "Swobu 守护进程端点。",
+  "configuration.executable.description": "可选：此扩展主机上兼容 Swobu 可执行文件的绝对路径。留空时使用 PATH 中的常规安装。",
+  "configuration.modelOverrides.description": "按 <workspace>/<route> 键控的功能和令牌限制覆盖。"
+}

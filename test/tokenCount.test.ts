@@ -1,2 +1,3 @@
-import assert from "node:assert/strict";import test from "node:test";import {estimateTokens} from "../src/tokenCount.js";
+import assert from "node:assert/strict";import test from "node:test";import * as vscode from "vscode";import {estimateTokens} from "../src/tokenCount.js";
 test("estimator is deterministic and nonzero",()=>{assert.equal(estimateTokens("hello"),estimateTokens("hello"));assert.ok(estimateTokens("")>=1);assert.ok(estimateTokens("こんにちは")>estimateTokens("hello"));});
+test("image accounting is bounded by semantic part, not byte-array JSON",()=>{const small={role:vscode.LanguageModelChatMessageRole.User,name:undefined,content:[vscode.LanguageModelDataPart.image(new Uint8Array(10),"image/png")]};const large={...small,content:[vscode.LanguageModelDataPart.image(new Uint8Array(1_000_000),"image/png")]};assert.equal(estimateTokens(small),estimateTokens(large));assert.ok(estimateTokens(large)<10_000);});
