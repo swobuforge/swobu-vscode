@@ -81,8 +81,11 @@ evidence.
 
 ## Blockers
 
-- Marketplace trusted-publishing policy and its real OIDC exchange require the
-  public repository/workflow identity.
+- Marketplace OIDC exchange currently returns 404 for `/_apis/gallery/token`.
+  Two PAT submissions of the exact qualified 0.1.2 asset reached the gallery
+  request and timed out; public and authenticated catalog reads did not confirm
+  creation. Do not claim Marketplace deployment until the catalog exposes
+  `swobu.swobu` and the public-ID smoke passes.
 - Open VSX publication requires its account/token; absence does not block the
   Visual Studio Marketplace launch.
 
