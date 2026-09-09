@@ -14,9 +14,10 @@ test("release surface has one portable package path and no runtime acquisition",
  assert.match(readFileSync("scripts/check-vsix.mjs","utf8"),/Deferred screenshot shipped unexpectedly/);
  assert.match(readFileSync("scripts/package-release.mjs","utf8"),/`swobu-\$\{version\}\.vsix`/);
 });
-test("0.1.3 changes distribution metadata and only the authorized runtime and request control surfaces",()=>{
+test("release changes distribution metadata and only the authorized runtime and request control surfaces",()=>{
  const manifest=JSON.parse(readFileSync("package.json","utf8"));
- assert.equal(manifest.version,"0.1.3");
+ assert.equal(manifest.version,"0.1.4");
+ assert.equal(manifest.engines.vscode,"^1.135.0");
  assert.equal(manifest.preview,undefined);
  assert.equal(manifest.activationEvents,undefined);
  assert.equal(manifest.pricing,"Free");

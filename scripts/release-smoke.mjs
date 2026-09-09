@@ -8,7 +8,7 @@ const source=process.argv[2];if(!source)throw new Error("Pass a qualified VSIX p
 if(!process.env.SWOBU_TEST_BINARY)throw new Error("Release smoke requires SWOBU_TEST_BINARY pointing to the compatible ordinary Swobu installation under test");
 const profile=mkdtempSync(join(tmpdir(),"swobu-installed-"));
 try{
- const code=await downloadAndUnzipVSCode("1.136.1"),[cli,...args]=resolveCliArgsFromVSCodeExecutablePath(code);
+ const code=await downloadAndUnzipVSCode("1.135.0"),[cli,...args]=resolveCliArgsFromVSCodeExecutablePath(code);
  const vsix=source==="marketplace"?`${pkg.publisher}.${pkg.name}`:resolve(source);
  const installArgs=[...args,"--user-data-dir",join(profile,"user"),"--extensions-dir",join(profile,"extensions"),"--install-extension",vsix,"--force"];
  let installSucceeded=false;

@@ -53,6 +53,6 @@
 
 ## 开发与许可
 
-需要 Node 22 和 VS Code 1.136 或更新版本。运行 `npm ci`、`npm test`、`npm run build`、`npm run package`。有兼容的普通 Swobu 安装时还应运行 `npm run test:integration`；Linux 无显示环境下使用 `xvfb-run -a`。
+需要 Node 22 和 VS Code 1.135 或更新版本。运行 `npm ci`、`npm test`、`npm run build`、`npm run package`。有兼容的普通 Swobu 安装时还应运行 `npm run test:integration`；Linux 无显示环境下使用 `xvfb-run -a`。
 
 扩展源码：[MIT](LICENSE)。Swobu 单独安装并适用其自身许可；VSIX 不包含 Swobu 可执行文件。Swobu 与 Microsoft、Anthropic 或 OpenAI 无关联。

@@ -14,9 +14,9 @@ The superseding authority is `docs/00-inbox/RFC_ Swobu VS Code — Turnkey Relea
 |---|---|
 | 000 authority and repository baseline | active |
 | [010 provider vertical slice](_done/010-provider-vertical-slice.md) | complete — source-level contract proof; installed journey belongs to 020 |
-| [020 turnkey release](020-turnkey-release.md) | active — portable package and shared-install migration |
-| [030 distribution maximization](030-distribution-maximization.md) | active — image-free 0.1.3 candidate passes native Agent grammar and attach journeys; notification-button UI smoke and publication remain |
-| 040 public publication | pending exact-byte qualification, Marketplace/Open VSX publication, and public-ID smoke |
+| [020 turnkey release](020-turnkey-release.md) | active — corrected 0.1.4 artifact qualification and publication |
+| [030 distribution maximization](030-distribution-maximization.md) | active — image-free 0.1.3 is public; 0.1.4 corrects the VS Code engine floor |
+| 040 public publication | Marketplace 0.1.3 public; corrected Marketplace publication and public-ID smoke remain; Open VSX stopped after unchanged-artifact functional smoke failed |
 
 ## Proof
 

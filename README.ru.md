@@ -53,6 +53,6 @@
 
 ## Разработка и лицензия
 
-Node 22, VS Code 1.136 или новее: `npm ci`, `npm test`, `npm run build`, `npm run package`. При наличии совместимой обычной установки Swobu также выполните `npm run test:integration`; на Linux без дисплея используйте `xvfb-run -a`.
+Node 22, VS Code 1.135 или новее: `npm ci`, `npm test`, `npm run build`, `npm run package`. При наличии совместимой обычной установки Swobu также выполните `npm run test:integration`; на Linux без дисплея используйте `xvfb-run -a`.
 
 Код расширения — [MIT](LICENSE). Swobu устанавливается и лицензируется отдельно; VSIX не содержит исполняемого файла Swobu. Swobu не связан с Microsoft, Anthropic или OpenAI.

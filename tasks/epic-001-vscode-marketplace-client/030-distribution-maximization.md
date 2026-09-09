@@ -5,7 +5,8 @@
 - Problem and affected actor: developers looking for VS Code Agent BYOK and
   provider fallback cannot recover Swobu's value quickly from Marketplace or
   adjacent Swobu surfaces.
-- User-requested end state: publish acquisition-only `0.1.3`, then measure its
+- User-requested end state: publish acquisition-focused `0.1.3`, correct its
+  unjustified VS Code engine floor in immutable follow-up `0.1.4`, then measure
   distribution at baseline, +7 days, and +14 days.
 - Non-goals: Swobu core, provider/request behavior, commands, UI, onboarding,
   telemetry, or routing. Authorized exception: protocol-only compatibility
@@ -25,7 +26,7 @@
 - Contradictions: the original engineering freeze excluded runtime and
   compatibility changes; the user's explicit protocol-authority correction
   authorizes that narrow exception. The installed Agent journey then exposed
-  VS Code 1.136's runtime-only System role, admitting the RFC's generic
+  the Agent host's runtime-only System role, admitting the RFC's generic
   Responses-semantics exception. Make retains project-action ownership; hooks
   remain trigger, environment, credential, and artifact-transport surfaces.
 - Ambiguity requiring human decision: none.
@@ -67,22 +68,26 @@
   publication.
 - Deferred screenshot backlog: add a genuine Agent-success hero, a tightly
   cropped native Swobu model picker, a legible fallback proof, and an
-  Agent-derived GitHub social preview after 0.1.3. These assets are explicitly
+  Agent-derived GitHub social preview after 0.1.4. These assets are explicitly
   outside the image-free release and must not be fabricated.
 
 ## Continuation
 
-- Last settled decision: `0.1.3` remains acquisition-focused, with one explicit
+- Last settled decision: `0.1.3` remains acquisition-focused; immutable `0.1.4`
+  corrects the unsupported VS Code engine floor, with one explicit
   runtime exception: protocol 9 alone establishes compatibility; version is
   diagnostic metadata.
-- Next bounded step: qualify and publish the image-free artifact, then record
+- Next bounded step: qualify and publish the corrected image-free artifact, then record
   the authenticated Marketplace baseline. Screenshots remain deferred by the
   user's release amendment.
 - Proof pointers: `test/packaging.test.ts`, `scripts/check-vsix.mjs`, Marketplace
   publisher Acquisition Trend, GitHub traffic APIs.
-- Open risks: manual/UI proof of the **Start Swobu** notification action; Open
-  VSX must accept the unchanged VSIX
-  or publication stops.
+- Open risks: manual/UI proof of the **Start Swobu** notification action.
+- Open VSX decision: stop. Code-server 4.136.2 / Code 1.136.1 installs and
+  activates the exact unchanged VSIX, but its Agent model picker exposes only
+  Copilot sign-in and does not expose the contributed Swobu model. The RFC's
+  meaningful unchanged-functionality smoke therefore fails; do not publish or
+  reopen compatibility engineering under this RFC.
 
 ## Credential ownership
 
@@ -111,6 +116,15 @@ Baseline captured 2026-09-09 before `0.1.3` publication:
 - native VS Code activations: unavailable as a distinct existing metric; report
   existing `vscode` usage separately if the product telemetry surface exposes
   it without new instrumentation.
+
+Post-publication public snapshot on 2026-09-09:
+
+- Marketplace: validated `0.1.3`, 2 installs, 11 downloads, no public rating
+  statistic exposed.
+- GitHub traffic: 0 views, 0 clones, and no popular referrers in the available
+  14-day window.
+- Open VSX: no public `swobu.swobu` listing; unchanged-artifact functional
+  smoke failed as recorded above, so publication stopped by policy.
 
 Capture the same fields at +7 days (2026-09-16) and +14 days (2026-09-23).
 Do not compute activation-per-acquisition unless both values have a defensible

@@ -8,16 +8,16 @@ workflow, and release law.
 
 ## Outcome
 
-Release `swobu.swobu` 0.1.2 Preview from the public
-`swobuforge/swobu-vscode` repository as one platform-independent VSIX. The
+Release `swobu.swobu` from the public `swobuforge/swobu-vscode` repository as
+one platform-independent VSIX. The
 extension attaches to or explicitly installs ordinary Swobu, exposes routes as
 native VS Code models, and completes the installed Agent tool loop. The same
 qualified VSIX bytes flow to GitHub Release, Visual Studio Marketplace, and
 Open VSX when credentialed.
 
-The genuine native Agent Marketplace screenshot is post-0.1.0 work owned by
-`tasks/backlog.md`. It is not a package or publication gate. Installed and
-post-publish Agent execution remain release gates.
+Product screenshots are deferred by the image-free release amendment. They are
+not package or publication gates. Installed and post-publish Agent execution
+remain release gates.
 
 ## Current implementation
 
@@ -26,11 +26,11 @@ post-publish Agent execution remain release gates.
   explicit unsupported-semantics failures.
 - Native route advertisement and machine-scoped QuickPick/InputBox overrides.
 - Attach-first ordinary Swobu resolution, explicit canonical installer use,
-  compatible-version checks, and no private bundled runtime.
+  protocol compatibility checks, and no private bundled runtime.
 - Claude Code and Codex commands delegate exact workspace/address state to the
   ordinary `swobu connect` seam.
 - English plus ten locale bundles and Marketplace READMEs.
-- Genuine model-picker and fallback screenshots; canonical icon and licenses.
+- Canonical required Marketplace icon and licenses; no product screenshots.
 - One portable VSIX path with archive inspection, Linux attach/start installed
   smoke, Windows same-byte qualification, OIDC Marketplace publication, GitHub
   Release, optional Open VSX, and public-ID smoke encoded in automation.
@@ -40,8 +40,9 @@ post-publish Agent execution remain release gates.
 
 ## Current proof
 
-- `make check`: 41 deterministic tests plus typecheck, lint, and boundary scan.
-- Current-source real VS Code 1.136.1 → ordinary Swobu 2.0.0 → deterministic
+- `make verify`: 50 deterministic tests plus typecheck, lint, boundary scan,
+  and build.
+- Minimum-supported real VS Code 1.135.0 → ordinary Swobu 2.0.0 → deterministic
   upstream journey: route discovery, parallel tools, ordered image results,
   second inference, UTF-8 streaming, primary 503/fallback recovery, canonical
   usage, raw `swobu-vscode/0.1.0` identity, and cancellation.
@@ -52,21 +53,14 @@ post-publish Agent execution remain release gates.
 - OIDC tooling recognizes Marketplace trusted publishing and rejects
   simultaneous PAT authentication.
 
-These source and development-host proofs do not qualify current VSIX bytes or
-prove Windows/public installation. No current-source release-qualified VSIX
-exists yet.
-
-The unpublished `v0.1.0` and `v0.1.1` transactions passed Linux qualification
-and completed the Windows routed/cancellation journey, then failed while
-deleting a harness-owned runtime home before its daemon exited and released
-`swobu.yaml.lock`. No destination published. The 0.1.2 harness awaits that
-known child process before deleting its home; the failed tags remain immutable
-evidence.
+The public Marketplace exposes validated `0.1.3`. Its immutable artifact has an
+unnecessarily high VS Code 1.136 engine floor. Corrected `0.1.4` source proves
+the same native model journey on VS Code 1.135.0 and requires a separately
+qualified artifact and publication.
 
 ## Remaining release transaction
 
-1. Create/populate the public repository, commit the release source, update the
-   platform gitlink, push, and tag `v0.1.2`.
+1. Commit, push, and tag corrected `v0.1.4` source.
 2. Build one VSIX from that exact tree and bind its checksum to the release
    transaction.
 3. Pass archive inspection plus Linux `attach` and `extension-start` installed
@@ -81,16 +75,13 @@ evidence.
 
 ## Blockers
 
-- Marketplace OIDC exchange currently returns 404 for `/_apis/gallery/token`.
-  Two PAT submissions of the exact qualified 0.1.2 asset reached the gallery
-  request and timed out; public and authenticated catalog reads did not confirm
-  creation. Do not claim Marketplace deployment until the catalog exposes
-  `swobu.swobu` and the public-ID smoke passes.
-- Open VSX publication requires its account/token; absence does not block the
-  Visual Studio Marketplace launch.
+- Corrected `0.1.4` requires the authorized immutable git/tag/release
+  transaction before artifact qualification.
+- Open VSX publication stopped: code-server installs and activates the exact
+  VSIX but does not expose Swobu in its Agent model picker. Compatibility
+  engineering is outside this RFC.
 
 ## Next bounded step
 
-Run current source and portable-package proof, then execute the authorized
-public repository and release transaction without changing qualified VSIX
-bytes between testing and publication.
+Execute the corrected immutable release transaction without changing qualified
+VSIX bytes between testing and publication.

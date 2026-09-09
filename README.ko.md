@@ -53,6 +53,6 @@ OpenRouter, Ollama, Bedrock, Azure, OpenAI 호환 엔드포인트 등 사용 가
 
 ## 개발 및 라이선스
 
-Node 22, VS Code 1.136 이상에서 `npm ci`, `npm test`, `npm run build`, `npm run package`를 실행합니다. 호환되는 일반 Swobu 설치가 있으면 `npm run test:integration`도 실행하고, 화면 없는 Linux에서는 `xvfb-run -a`를 사용하세요.
+Node 22, VS Code 1.135 이상에서 `npm ci`, `npm test`, `npm run build`, `npm run package`를 실행합니다. 호환되는 일반 Swobu 설치가 있으면 `npm run test:integration`도 실행하고, 화면 없는 Linux에서는 `xvfb-run -a`를 사용하세요.
 
 확장 소스는 [MIT](LICENSE)입니다. Swobu는 별도로 설치 및 라이선스되며 VSIX에는 Swobu 실행 파일이 없습니다. Swobu는 Microsoft, Anthropic, OpenAI와 제휴하지 않습니다.

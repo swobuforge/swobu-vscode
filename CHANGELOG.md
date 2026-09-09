@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4
+
+- Support VS Code and compatible Open VSX clients from version 1.135 onward.
+
+No extension runtime behavior changed from 0.1.3.
+
 ## 0.1.3
 
 Marketplace and documentation refresh:

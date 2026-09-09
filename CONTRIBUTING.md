@@ -1,6 +1,6 @@
 # Contributing
 
-Use Node.js 22 and VS Code 1.136 or newer.
+Use Node.js 22 and VS Code 1.135 or newer.
 
 ```sh
 npm ci

@@ -53,6 +53,6 @@ OpenRouter、Ollama、Bedrock、Azure、OpenAI 互換エンドポイントなど
 
 ## 開発とライセンス
 
-Node 22、VS Code 1.136 以降で `npm ci`、`npm test`、`npm run build`、`npm run package` を実行します。互換性のある通常の Swobu インストールがある場合は `npm run test:integration` も実行し、画面のない Linux では `xvfb-run -a` を付けます。
+Node 22、VS Code 1.135 以降で `npm ci`、`npm test`、`npm run build`、`npm run package` を実行します。互換性のある通常の Swobu インストールがある場合は `npm run test:integration` も実行し、画面のない Linux では `xvfb-run -a` を付けます。
 
 拡張機能のソースは [MIT](LICENSE)。Swobu は別途インストール、ライセンスされ、VSIX に Swobu 実行ファイルは含まれません。Swobu は Microsoft、Anthropic、OpenAI と提携していません。

@@ -53,6 +53,6 @@ Après modification des routes, utilisez **Swobu: Refresh Models**. Si Swobu est
 
 ## Développement et licence
 
-Node 22 et VS Code 1.136 ou ultérieur : `npm ci`, `npm test`, `npm run build`, `npm run package`. Avec une installation Swobu ordinaire compatible, exécutez aussi `npm run test:integration` ; sous Linux sans écran, utilisez `xvfb-run -a`.
+Node 22 et VS Code 1.135 ou ultérieur : `npm ci`, `npm test`, `npm run build`, `npm run package`. Avec une installation Swobu ordinaire compatible, exécutez aussi `npm run test:integration` ; sous Linux sans écran, utilisez `xvfb-run -a`.
 
 Extension : [MIT](LICENSE). Swobu est installé et licencié séparément ; le VSIX ne contient aucun exécutable Swobu. Swobu n’est affilié ni à Microsoft, ni à Anthropic, ni à OpenAI.
