@@ -61,5 +61,22 @@
   "Unsupported streamed output item: {0}.": "不支持的流式输出项：{0}。",
   "Named VS Code messages are not supported.": "不支持带名称的 VS Code 消息。",
   "Function call is missing its name.": "函数调用缺少名称。",
-  "Function call arguments must be a JSON object.": "函数调用参数必须是 JSON 对象。"
+  "Function call arguments must be a JSON object.": "函数调用参数必须是 JSON 对象。",
+  "Update Swobu": "更新 Swobu",
+  "Open Swobu": "打开 Swobu",
+  "Swobu is too old for this extension.\n\nUpdate Swobu to continue.": "Swobu 对此扩展而言版本过旧。\n\n请更新 Swobu 以继续。",
+  "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.": "Swobu 需要更新。\n\n此扩展支持 Swobu 控制平面协议 {0}，但正在运行的 Swobu 使用协议 {1}。",
+  "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.": "请更新 Swobu VS Code 扩展。\n\n你的 Swobu 安装使用控制平面协议 {0}，但此扩展支持协议 {1}。",
+  "Check for Extension Updates": "检查扩展更新",
+  "Open Logs": "打开日志",
+  "Couldn't connect to Swobu.": "无法连接到 Swobu。",
+  "Use Default Installation": "使用默认安装",
+  "Configured Swobu executable can't be found.\n\n{0}": "找不到配置的 Swobu 可执行文件。\n\n{0}",
+  "Swobu isn't installed on this extension host.": "此扩展主机上未安装 Swobu。",
+  "Swobu installation exited with code {0}.": "Swobu 安装程序退出，代码为 {0}。",
+  "Restart Swobu": "重启 Swobu",
+  "No Swobu routes are available yet.": "尚无可用的 Swobu 路由。",
+  "Start Swobu": "启动 Swobu",
+  "Swobu isn't running at {0}.": "Swobu 未在 {0} 运行。",
+  "Invalid VS Code stateful marker.": "VS Code 状态标记无效。"
 }

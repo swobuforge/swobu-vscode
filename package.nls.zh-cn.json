@@ -1,6 +1,6 @@
 {
-  "displayName": "VS Code、Claude Code 与 Codex 的 LLM 路由器 — Swobu",
-  "description": "保留 VS Code Agent、Claude Code 和 Codex。通过本地 Swobu 端点路由模型请求，并选择提供商和备用方案。",
+  "displayName": "Swobu — VS Code、Claude Code 与 Codex 的 LLM 路由器",
+  "description": "在 VS Code Agent 中使用自己的模型提供商—BYOK 无需 Copilot 计划。通过带故障转移的路由使用 OpenRouter、Ollama 等，并连接 Claude Code 与 Codex。",
   "command.0": "打开",
   "command.1": "设置",
   "command.2": "连接 Claude Code",

@@ -1,6 +1,6 @@
 {
-  "displayName": "Enrutador LLM para VS Code, Claude Code y Codex — Swobu",
-  "description": "Conserva VS Code Agent, Claude Code y Codex. Enruta las solicitudes de modelos por tu endpoint Swobu local con selección de proveedor y alternativa.",
+  "displayName": "Swobu — Enrutador LLM para VS Code, Claude Code y Codex",
+  "description": "Usa VS Code Agent con tus propios proveedores de modelos; BYOK no requiere un plan de Copilot. Enruta OpenRouter, Ollama y más con respaldo; conecta también Claude Code y Codex.",
   "command.0": "Abrir",
   "command.1": "Configurar",
   "command.2": "Conectar Claude Code",

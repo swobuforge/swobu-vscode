@@ -1,6 +1,6 @@
 {
-  "displayName": "VS Code、Claude Code、Codex 向け LLM ルーター — Swobu",
-  "description": "VS Code Agent、Claude Code、Codex はそのまま。ローカルの Swobu エンドポイント経由でモデルリクエストをルーティングし、プロバイダーとフォールバックを選べます。",
+  "displayName": "Swobu — VS Code、Claude Code、Codex 向け LLM ルーター",
+  "description": "独自のモデルプロバイダーで VS Code Agent を使用。BYOK に Copilot プランは不要です。OpenRouter、Ollama などをフォールバック付きでルーティングし、Claude Code と Codex にも接続できます。",
   "command.0": "開く",
   "command.1": "セットアップ",
   "command.2": "Claude Code に接続",

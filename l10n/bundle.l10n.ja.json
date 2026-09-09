@@ -61,5 +61,22 @@
   "Unsupported streamed output item: {0}.": "サポートされていないストリーミング出力項目です：{0}。",
   "Named VS Code messages are not supported.": "名前付きの VS Code メッセージはサポートされていません。",
   "Function call is missing its name.": "関数呼び出しに名前がありません。",
-  "Function call arguments must be a JSON object.": "関数呼び出しの引数は JSON オブジェクトである必要があります。"
+  "Function call arguments must be a JSON object.": "関数呼び出しの引数は JSON オブジェクトである必要があります。",
+  "Update Swobu": "Swobu を更新",
+  "Open Swobu": "Swobu を開く",
+  "Swobu is too old for this extension.\n\nUpdate Swobu to continue.": "Swobu が古すぎるため、この拡張機能では使用できません。\n\n続行するには Swobu を更新してください。",
+  "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.": "Swobu の更新が必要です。\n\nこの拡張機能は Swobu コントロールプレーンプロトコル {0} をサポートしていますが、実行中の Swobu はプロトコル {1} を使用しています。",
+  "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.": "Swobu VS Code 拡張機能を更新してください。\n\nSwobu はコントロールプレーンプロトコル {0} を使用していますが、この拡張機能はプロトコル {1} をサポートしています。",
+  "Check for Extension Updates": "拡張機能の更新を確認",
+  "Open Logs": "ログを開く",
+  "Couldn't connect to Swobu.": "Swobu に接続できませんでした。",
+  "Use Default Installation": "既定のインストールを使用",
+  "Configured Swobu executable can't be found.\n\n{0}": "設定された Swobu 実行ファイルが見つかりません。\n\n{0}",
+  "Swobu isn't installed on this extension host.": "この拡張機能ホストには Swobu がインストールされていません。",
+  "Swobu installation exited with code {0}.": "Swobu インストールはコード {0} で終了しました。",
+  "Restart Swobu": "Swobu を再起動",
+  "No Swobu routes are available yet.": "利用可能な Swobu ルートがまだありません。",
+  "Start Swobu": "Swobu を起動",
+  "Swobu isn't running at {0}.": "Swobu は {0} で実行されていません。",
+  "Invalid VS Code stateful marker.": "VS Code の状態マーカーが無効です。"
 }

@@ -61,5 +61,22 @@
   "Unsupported streamed output item: {0}.": "Неподдерживаемый элемент потокового вывода: {0}.",
   "Named VS Code messages are not supported.": "Именованные сообщения VS Code не поддерживаются.",
   "Function call is missing its name.": "У вызова функции отсутствует имя.",
-  "Function call arguments must be a JSON object.": "Аргументы вызова функции должны быть объектом JSON."
+  "Function call arguments must be a JSON object.": "Аргументы вызова функции должны быть объектом JSON.",
+  "Update Swobu": "Обновить Swobu",
+  "Open Swobu": "Открыть Swobu",
+  "Swobu is too old for this extension.\n\nUpdate Swobu to continue.": "Swobu устарел для этого расширения.\n\nОбновите Swobu, чтобы продолжить.",
+  "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.": "Swobu необходимо обновить.\n\nЭто расширение поддерживает протокол плоскости управления Swobu {0}, а запущенный Swobu использует протокол {1}.",
+  "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.": "Обновите расширение Swobu для VS Code.\n\nВаша установка Swobu использует протокол плоскости управления {0}, а это расширение поддерживает протокол {1}.",
+  "Check for Extension Updates": "Проверить обновления расширений",
+  "Open Logs": "Открыть журналы",
+  "Couldn't connect to Swobu.": "Не удалось подключиться к Swobu.",
+  "Use Default Installation": "Использовать стандартную установку",
+  "Configured Swobu executable can't be found.\n\n{0}": "Не удаётся найти настроенный исполняемый файл Swobu.\n\n{0}",
+  "Swobu isn't installed on this extension host.": "Swobu не установлен на этом узле расширения.",
+  "Swobu installation exited with code {0}.": "Установка Swobu завершилась с кодом {0}.",
+  "Restart Swobu": "Перезапустить Swobu",
+  "No Swobu routes are available yet.": "Маршруты Swobu пока недоступны.",
+  "Start Swobu": "Запустить Swobu",
+  "Swobu isn't running at {0}.": "Swobu не запущен по адресу {0}.",
+  "Invalid VS Code stateful marker.": "Недопустимый маркер состояния VS Code."
 }

@@ -4,7 +4,20 @@ import * as vscode from "vscode";
 import {chmod,mkdtemp,rm,symlink,writeFile} from "node:fs/promises";
 import {tmpdir} from "node:os";
 import {join} from "node:path";
-import { canonicalExecutable,ensureRuntime,executableCandidates,officialInstallerPlan,resolveSwobuCommand } from "../src/runtime.js";
+import { canonicalExecutable,compatibilityRepair,ensureRuntime,executableCandidates,officialInstallerPlan,resolveSwobuCommand,runRuntimeCommand } from "../src/runtime.js";
+
+test("protocol direction selects one actionable repair",()=>{
+ assert.deepEqual(compatibilityRepair(undefined),{message:"Swobu is too old for this extension.\n\nUpdate Swobu to continue.",actions:["Update Swobu"],repair:"swobu"});
+ assert.deepEqual(compatibilityRepair(8),{message:"Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol 9, but the running Swobu uses protocol 8.",actions:["Update Swobu","Open Swobu"],repair:"swobu"});
+ assert.deepEqual(compatibilityRepair(10),{message:"Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol 10, but this extension supports protocol 9.",actions:["Check for Extension Updates"],repair:"extension"});
+});
+
+test("updating an older Swobu retries the interrupted command once",async()=>{
+ const mutableWindow=vscode.window as unknown as {showErrorMessage:()=>Promise<string>};const original=mutableWindow.showErrorMessage;mutableWindow.showErrorMessage=async()=>"Update Swobu";
+ let attempts=0,updates=0;
+ try{await runRuntimeCommand({subscriptions:[]} as unknown as vscode.ExtensionContext,async()=>{attempts++;if(attempts===1)throw new (await import("../src/controlPlane.js")).CompatibilityError(8);},{updateSwobu:async()=>{updates++;},updateExtension:async()=>{},openSwobu:async()=>{}});}finally{mutableWindow.showErrorMessage=original;}
+ assert.equal(updates,1);assert.equal(attempts,2);
+});
 
 test("official installers are downloaded to a temporary file and invoked without a shell pipeline",()=>{
  const unix=officialInstallerPlan("linux","/tmp/extension-owned");

@@ -6,13 +6,11 @@
 
 Используйте маршрут Swobu как нативную модель VS Code или подключайте Claude Code и Codex, сохраняя официальные интерфейсы. Настройте поставщиков и резервные варианты в Swobu один раз: выбранный маршрут остаётся прежним при смене модели.
 
-Установите Preview из [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) или найдите `swobu.swobu` в VS Code. Один платформонезависимый пакет поддерживает локальные хосты расширений, WSL, Remote SSH и контейнеры разработки.
+Установите расширение из [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) или найдите `swobu.swobu` в VS Code. Один платформонезависимый пакет поддерживает локальные хосты расширений, WSL, Remote SSH и контейнеры разработки.
 
 ## Модели в VS Code
 
 Откройте **Manage Language Models**, выберите **Swobu**, затем маршрут. Swobu управляет выбором поставщика и резервированием. Вызовы инструментов для VS Code Agent включены по умолчанию.
-
-![Выберите в VS Code маршрут Swobu с именем code.](assets/screenshots/model-picker.png)
 
 ## Claude Code и Codex
 
@@ -21,8 +19,6 @@
 ## Зачем маршруты?
 
 Переключатель поставщиков меняет модель в редакторе. Маршрут позволяет менять доступные модели и настраивать резервирование за одним выбором модели. Сохраните клиент, а решение о поставщике передайте Swobu.
-
-![После запланированного сбоя основной цели запрос завершается через резервную цель OpenAI.](assets/screenshots/fallback-proof.png)
 
 ## Начало работы
 

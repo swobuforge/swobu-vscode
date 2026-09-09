@@ -1,74 +1,96 @@
-[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md) | [Português](README.pt-BR.md) | [Bahasa Indonesia](README.id.md) | [한국어](README.ko.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Русский](README.ru.md) | [Українська](README.uk.md)
+# [Swobu](https://swobu.com/) — LLM Router for VS Code, Claude Code & Codex
 
-# [Swobu](https://swobu.com/) — LLM Router & Model Provider for VS Code
+**Use VS Code Agent with your own model providers. Keep the client. Swap the backend.**
 
-Keep your coding workflow. Choose the model capacity behind it.
+Put OpenRouter, Ollama, Bedrock, Azure, local models or other capacity behind one stable Swobu route. Change providers or fail over without changing the model selected in VS Code.
 
-Use a Swobu route as a native VS Code model, or connect Claude Code and Codex while keeping their official interfaces. Configure providers and fallback once in Swobu; keep selecting the same route when the model underneath changes.
+VS Code BYOK supports Agent/chat without a GitHub Copilot plan. Inline completions and semantic-search features are separate.
 
-Install the Preview from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu), or search for `swobu.swobu` in VS Code. One platform-independent package supports local, WSL, Remote SSH, and dev-container extension hosts.
+## Native in VS Code
 
-## Use your Swobu routes as VS Code models
+Swobu routes appear in Chat and Agent as native models. Open **Manage Language Models**, choose **Swobu**, and select a route such as `code`.
 
-Open **Manage Language Models**, choose **Swobu**, and select a route. Your route name stays stable while Swobu handles provider selection and fallback. Tool calling is enabled by default for VS Code Agent.
+Models contributed through a `LanguageModelChatProvider` can also be consumed by other VS Code extensions through the Language Model API.
 
-![Select the Swobu route named code in VS Code.](assets/screenshots/model-picker.png)
+## One route, multiple clients
 
-## Keep Claude Code, change capacity underneath
+```text
+VS Code      → Swobu route
+Claude Code  → same Swobu
+Codex        → same Swobu
+```
 
-Run **Swobu: Connect Claude Code**, choose a route workspace, and continue in the official Claude Code interface. Swobu's existing connection command handles configuration and replacement safety.
+## Why Swobu
 
-## Keep Codex, change capacity underneath
+Direct provider configuration couples the client to capacity. Swobu keeps the client-facing route stable and moves provider selection, balancing and fallback underneath it.
 
-Run **Swobu: Connect Codex** and choose a workspace. Continue using Codex with requests routed through the same local Swobu endpoint.
-
-## Why routes instead of another provider switcher?
-
-A provider switcher changes the model in your editor. A route lets you change capacity or configure fallback behind one model selection. Keep the client and move the provider decision into Swobu.
-
-![A planned primary failure completes through an OpenAI fallback target.](assets/screenshots/fallback-proof.png)
+**The `code` route stays selected while Swobu recovers through another target.**
 
 ## Get started
 
-1. Open **Swobu: Set Up**. If Swobu is absent, the extension offers the official installer; otherwise it opens the ordinary shared Swobu installation.
-2. Create a route for your coding workflow.
-3. Select it in **Manage Language Models**, then ask the Agent to read a file.
-4. Open **Swobu: Open** to inspect the resulting routed traffic.
+1. Install [Swobu for VS Code](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) and run **Swobu: Set Up**.
+2. Create a Swobu route with your model capacity.
+3. Select the route in **Manage Language Models** and give Agent a task.
 
-## Model settings
+## Popular setups
 
-Run **Swobu: Configure Model** and choose your route. Images and tool calling have **Default**, **On**, and **Off** choices. Context and output limits offer presets and a custom positive integer. **Reset overrides** restores defaults immediately, without reloading VS Code.
+- [VS Code Agent with Ollama or another local model](https://swobu.com/docs/providers/ollama/?utm_source=swobu_vscode&utm_medium=referral&utm_campaign=vscode_extension)
+- [VS Code Agent with OpenRouter](https://swobu.com/docs/providers/openrouter/?utm_source=swobu_vscode&utm_medium=referral&utm_campaign=vscode_extension)
+- [Connect Claude Code through Swobu](https://swobu.com/docs/guides/claude-code-ollama/?utm_source=swobu_vscode&utm_medium=referral&utm_campaign=vscode_extension)
+- [Connect Codex through Swobu](https://swobu.com/docs/clients/connect/?utm_source=swobu_vscode&utm_medium=referral&utm_campaign=vscode_extension)
+- [Keep a route available with provider fallback](https://swobu.com/docs/routing/fallback/?utm_source=swobu_vscode&utm_medium=referral&utm_campaign=vscode_extension)
 
-Defaults: tools on, images off, 32,768 input tokens, 4,096 output tokens. These are client-facing advertisements you control—not automatic detection of the model under a route. Enable images only for a route with image-capable capacity.
+## Trust
 
-## Supported providers / examples
+- The [extension source is open](https://github.com/swobuforge/swobu-vscode).
+- Provider credentials remain in Swobu.
+- The VSIX contains no Swobu executable.
+- Request content exists transiently in extension memory but is not independently persisted or logged by the extension.
 
-Configure available capacity in Swobu, including OpenRouter, Ollama, Bedrock, Azure, and OpenAI-compatible endpoints. Keep provider credentials in Swobu rather than in the extension.
+See [Privacy](PRIVACY.md) and [Security](SECURITY.md).
 
-## How it works
+## FAQ
 
-VS Code sends requests to the local Swobu runtime. Swobu owns provider connections, retries, fallback and usage. The extension projects routes as models and streams the result back into VS Code.
+### Do I need a Copilot plan?
 
-## Privacy & security
+No. VS Code supports BYOK models in Agent and chat without a GitHub Copilot plan. Inline completions and semantic-search features are separate.
 
-Prompts, responses and tool content pass through extension memory during requests. The extension does not persist or log that content and has no separate telemetry uploader. Swobu's own privacy and telemetry settings apply to its runtime. See [PRIVACY.md](PRIVACY.md) and [SECURITY.md](SECURITY.md).
+### Can I use local models?
 
-## Remote / WSL / container behavior
+Yes. Add Ollama, LM Studio, vLLM, llama.cpp or another compatible local endpoint to a Swobu route, then select that route in VS Code.
 
-The extension runs on the workspace extension host. Its loopback endpoint refers to that host: in a remote workspace, configure Swobu on the remote side. Installation is always explicit on that host. The same platform-independent extension package is used locally, in WSL, over Remote SSH, and in dev containers.
+### Does this replace Claude Code or Codex?
 
-## Troubleshooting
+No. The extension can connect their official clients to the same Swobu installation and routes.
 
-Use **Swobu: Refresh Models** after changing routes. Check the machine-scoped endpoint if the runtime is unavailable. For connection errors, inspect the Swobu connection output before allowing replacement.
+### Where are provider keys stored?
 
-[Report an issue](https://github.com/swobuforge/swobu-vscode/issues) with your VS Code version, platform and the error message; omit credentials and private request content.
+In Swobu, not this extension. The extension talks to your ordinary Swobu runtime.
 
-## Development
+### Can it work offline with local capacity?
 
-Use Node 22 and VS Code 1.136 or newer. Run `npm ci`, `npm test`, `npm run build`, and `npm run package`. Run `npm run test:integration` too (under `xvfb-run -a` on headless Linux) when a compatible ordinary Swobu installation is available.
+Yes, when the selected Swobu route uses reachable local capacity. VS Code or other extensions may still use their own online services.
 
-## License
+## For VS Code extension authors
 
-Extension source: [MIT](LICENSE). Swobu is installed and licensed separately; the VSIX contains no Swobu executable.
+Swobu routes are normal VS Code language models.
 
-Swobu is not affiliated with Microsoft, Anthropic or OpenAI.
+```ts
+const models = await vscode.lm.selectChatModels({
+  vendor: "swobu"
+});
+```
+
+Extensions using the standard Language Model API can consume the user's Swobu routes instead of implementing another provider stack.
+
+## Languages
+
+[English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Português](README.pt-BR.md) · [Bahasa Indonesia](README.id.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Русский](README.ru.md) · [Українська](README.uk.md)
+
+## Support and license
+
+[Report an issue](https://github.com/swobuforge/swobu-vscode/issues) with your VS Code version, platform and error message. Omit credentials and private request content.
+
+Extension source is [MIT licensed](LICENSE). Swobu is installed and licensed separately. Swobu is not affiliated with Microsoft, Anthropic or OpenAI.
+
+Using Swobu successfully? A [Marketplace rating](https://marketplace.visualstudio.com/items?itemName=swobu.swobu&ssr=false#review-details) helps other developers judge it.

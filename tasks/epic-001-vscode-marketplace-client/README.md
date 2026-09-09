@@ -15,8 +15,8 @@ The superseding authority is `docs/00-inbox/RFC_ Swobu VS Code — Turnkey Relea
 | 000 authority and repository baseline | active |
 | [010 provider vertical slice](_done/010-provider-vertical-slice.md) | complete — source-level contract proof; installed journey belongs to 020 |
 | [020 turnkey release](020-turnkey-release.md) | active — portable package and shared-install migration |
-| 030 installed host/client matrix | active — exact portable VSIX passes attach and extension-start journeys; authenticated native Agent UI proof remains |
-| 040 Preview publication | pending public repository, exact-byte qualification, Marketplace policy, publication, and public-ID smoke |
+| [030 distribution maximization](030-distribution-maximization.md) | active — image-free 0.1.3 candidate passes native Agent grammar and attach journeys; notification-button UI smoke and publication remain |
+| 040 public publication | pending exact-byte qualification, Marketplace/Open VSX publication, and public-ID smoke |
 
 ## Proof
 

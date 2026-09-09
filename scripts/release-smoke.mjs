@@ -22,8 +22,10 @@ try{
  const dir=readdirSync(join(profile,"extensions")).find(name=>name.startsWith(`${pkg.publisher}.${pkg.name}-${pkg.version}`));if(!dir)throw new Error("Expected installed extension not found");
  const installedExtension=join(profile,"extensions",dir);
  const runtimeEntries=readdirSync(installedExtension,{recursive:true}).filter(name=>/(?:^|[\\/])swobu(?:\.exe)?$/.test(String(name)));if(runtimeEntries.length)throw new Error("Installed VSIX contains a private Swobu runtime");
- for(const mode of ["attach","extension-start"]){
-  const journey=spawnSync(process.execPath,["scripts/test-integration.mjs"],{stdio:"inherit",env:{...process.env,SWOBU_INSTALLED_EXTENSION:installedExtension,SWOBU_TEST_RUNTIME_MODE:mode}});
+ for(const mode of ["direct","attach"]){
+  const env={...process.env,SWOBU_INSTALLED_EXTENSION:installedExtension,SWOBU_TEST_RUNTIME_MODE:mode};
+  if(mode==="direct")delete env.SWOBU_TEST_BINARY;
+  const journey=spawnSync(process.execPath,["scripts/test-integration.mjs"],{stdio:"inherit",env});
   if(journey.status!==0)throw new Error(`Installed extension ${mode} journey failed`);
  }
 }finally{rmSync(profile,{recursive:true,force:true});}

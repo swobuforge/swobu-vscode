@@ -1,6 +1,6 @@
 {
-  "displayName": "Маршрутизатор LLM для VS Code, Claude Code та Codex — Swobu",
-  "description": "Продовжуйте використовувати VS Code Agent, Claude Code та Codex. Спрямовуйте запити до моделей через локальну кінцеву точку Swobu з вибором постачальника й резервного варіанта.",
+  "displayName": "Swobu — маршрутизатор LLM для VS Code, Claude Code та Codex",
+  "description": "Використовуйте VS Code Agent із власними постачальниками моделей—для BYOK план Copilot не потрібен. Спрямовуйте OpenRouter, Ollama та інші через маршрути з резервуванням; підключайте також Claude Code та Codex.",
   "command.0": "Відкрити",
   "command.1": "Налаштувати",
   "command.2": "Підключити Claude Code",

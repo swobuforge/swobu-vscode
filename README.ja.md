@@ -6,13 +6,11 @@
 
 Swobu ルートを VS Code のネイティブモデルとして使うか、公式 UI を維持したまま Claude Code と Codex を接続できます。プロバイダーとフォールバックを Swobu で一度設定すれば、モデルが変わっても同じルートを選び続けられます。
 
-[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) から Preview をインストールするか、VS Code で `swobu.swobu` を検索してください。1 つのプラットフォーム非依存パッケージで、ローカル、WSL、Remote SSH、Dev Container の拡張機能ホストに対応します。
+[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) から拡張機能をインストールするか、VS Code で `swobu.swobu` を検索してください。1 つのプラットフォーム非依存パッケージで、ローカル、WSL、Remote SSH、Dev Container の拡張機能ホストに対応します。
 
 ## VS Code でモデルを使う
 
 **Manage Language Models** を開き、**Swobu** とルートを選択します。プロバイダーの選択とフォールバックは Swobu が管理します。VS Code Agent 用のツール呼び出しは既定で有効です。
-
-![VS Code で code という Swobu ルートを選択します。](assets/screenshots/model-picker.png)
 
 ## Claude Code と Codex をそのまま使う
 
@@ -21,8 +19,6 @@ Swobu ルートを VS Code のネイティブモデルとして使うか、公�
 ## なぜルートなのか
 
 プロバイダー切り替えはエディター内のモデルを変更します。ルートなら、同じモデル選択の背後で処理先やフォールバックを変更できます。クライアントを維持し、プロバイダーの判断を Swobu に任せます。
-
-![計画されたプライマリ障害の後、OpenAI のフォールバック先でリクエストが完了します。](assets/screenshots/fallback-proof.png)
 
 ## はじめに
 

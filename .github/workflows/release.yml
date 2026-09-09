@@ -40,7 +40,7 @@ jobs:
         with:
           name: vsix
           path: .out/release
-      - run: gh release create "$GITHUB_REF_NAME" .out/release/*.vsix .out/release/SHA256SUMS.txt --prerelease --generate-notes
+      - run: gh release create "$GITHUB_REF_NAME" .out/release/*.vsix .out/release/SHA256SUMS.txt --generate-notes
         env: {GH_TOKEN: '${{ github.token }}'}
   publish-marketplace:
     needs: windows-smoke

@@ -61,5 +61,22 @@
   "Unsupported streamed output item: {0}.": "Elemento de salida en streaming no compatible: {0}.",
   "Named VS Code messages are not supported.": "No se admiten mensajes de VS Code con nombre.",
   "Function call is missing its name.": "La llamada a función no tiene nombre.",
-  "Function call arguments must be a JSON object.": "Los argumentos de la llamada a función deben ser un objeto JSON."
+  "Function call arguments must be a JSON object.": "Los argumentos de la llamada a función deben ser un objeto JSON.",
+  "Update Swobu": "Actualizar Swobu",
+  "Open Swobu": "Abrir Swobu",
+  "Swobu is too old for this extension.\n\nUpdate Swobu to continue.": "Swobu es demasiado antiguo para esta extensión.\n\nActualiza Swobu para continuar.",
+  "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.": "Swobu necesita una actualización.\n\nEsta extensión admite el protocolo {0} del plano de control de Swobu, pero el Swobu en ejecución usa el protocolo {1}.",
+  "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.": "Actualiza la extensión Swobu para VS Code.\n\nTu instalación de Swobu usa el protocolo {0} del plano de control, pero esta extensión admite el protocolo {1}.",
+  "Check for Extension Updates": "Buscar actualizaciones de extensiones",
+  "Open Logs": "Abrir registros",
+  "Couldn't connect to Swobu.": "No se pudo conectar con Swobu.",
+  "Use Default Installation": "Usar instalación predeterminada",
+  "Configured Swobu executable can't be found.\n\n{0}": "No se encuentra el ejecutable Swobu configurado.\n\n{0}",
+  "Swobu isn't installed on this extension host.": "Swobu no está instalado en este host de extensiones.",
+  "Swobu installation exited with code {0}.": "La instalación de Swobu terminó con el código {0}.",
+  "Restart Swobu": "Reiniciar Swobu",
+  "No Swobu routes are available yet.": "Todavía no hay rutas Swobu disponibles.",
+  "Start Swobu": "Iniciar Swobu",
+  "Swobu isn't running at {0}.": "Swobu no se está ejecutando en {0}.",
+  "Invalid VS Code stateful marker.": "El marcador de estado de VS Code no es válido."
 }

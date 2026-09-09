@@ -61,5 +61,22 @@
   "Unsupported streamed output item: {0}.": "Item keluaran streaming tidak didukung: {0}.",
   "Named VS Code messages are not supported.": "Pesan VS Code bernama tidak didukung.",
   "Function call is missing its name.": "Panggilan fungsi tidak memiliki nama.",
-  "Function call arguments must be a JSON object.": "Argumen panggilan fungsi harus berupa objek JSON."
+  "Function call arguments must be a JSON object.": "Argumen panggilan fungsi harus berupa objek JSON.",
+  "Update Swobu": "Perbarui Swobu",
+  "Open Swobu": "Buka Swobu",
+  "Swobu is too old for this extension.\n\nUpdate Swobu to continue.": "Swobu terlalu lama untuk ekstensi ini.\n\nPerbarui Swobu untuk melanjutkan.",
+  "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.": "Swobu perlu diperbarui.\n\nEkstensi ini mendukung protokol bidang kontrol Swobu {0}, tetapi Swobu yang berjalan menggunakan protokol {1}.",
+  "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.": "Perbarui ekstensi Swobu VS Code.\n\nInstalasi Swobu Anda menggunakan protokol bidang kontrol {0}, tetapi ekstensi ini mendukung protokol {1}.",
+  "Check for Extension Updates": "Periksa Pembaruan Ekstensi",
+  "Open Logs": "Buka Log",
+  "Couldn't connect to Swobu.": "Tidak dapat terhubung ke Swobu.",
+  "Use Default Installation": "Gunakan Instalasi Default",
+  "Configured Swobu executable can't be found.\n\n{0}": "Berkas Swobu yang dikonfigurasi tidak dapat ditemukan.\n\n{0}",
+  "Swobu isn't installed on this extension host.": "Swobu belum terpasang di host ekstensi ini.",
+  "Swobu installation exited with code {0}.": "Instalasi Swobu berhenti dengan kode {0}.",
+  "Restart Swobu": "Mulai Ulang Swobu",
+  "No Swobu routes are available yet.": "Belum ada rute Swobu yang tersedia.",
+  "Start Swobu": "Mulai Swobu",
+  "Swobu isn't running at {0}.": "Swobu tidak berjalan di {0}.",
+  "Invalid VS Code stateful marker.": "Penanda status VS Code tidak valid."
 }

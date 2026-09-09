@@ -6,13 +6,11 @@ Behalte deinen Entwicklungsablauf. Wähle die Modelle dahinter.
 
 Nutze eine Swobu-Route als natives VS-Code-Modell oder verbinde Claude Code und Codex mit ihren offiziellen Oberflächen. Konfiguriere Anbieter und Fallback einmal in Swobu; die gewählte Route bleibt gleich, wenn sich das Modell dahinter ändert.
 
-Installiere die Preview aus dem [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) oder suche in VS Code nach `swobu.swobu`. Ein plattformunabhängiges Paket unterstützt lokale, WSL-, Remote-SSH- und Dev-Container-Erweiterungshosts.
+Installiere die Erweiterung aus dem [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) oder suche in VS Code nach `swobu.swobu`. Ein plattformunabhängiges Paket unterstützt lokale, WSL-, Remote-SSH- und Dev-Container-Erweiterungshosts.
 
 ## Swobu-Modelle in VS Code
 
 Öffne **Manage Language Models**, wähle **Swobu** und anschließend eine Route. Swobu übernimmt Anbieterauswahl und Fallback. Werkzeugaufrufe für VS Code Agent sind standardmäßig aktiviert.
-
-![Wähle in VS Code die Swobu-Route namens code aus.](assets/screenshots/model-picker.png)
 
 ## Claude Code und Codex behalten
 
@@ -21,8 +19,6 @@ Führe **Swobu: Connect Claude Code** oder **Swobu: Connect Codex** aus, wähle 
 ## Warum Routen?
 
 Ein Anbieterwechsel tauscht das Modell im Editor aus. Eine Route lässt dich Modellkapazität und Fallback hinter einer stabilen Modellauswahl verändern. Der Client bleibt; die Anbieterentscheidung liegt bei Swobu.
-
-![Nach einem geplanten Ausfall des Primärziels wird die Anfrage über das OpenAI-Fallbackziel abgeschlossen.](assets/screenshots/fallback-proof.png)
 
 ## Erste Schritte
 

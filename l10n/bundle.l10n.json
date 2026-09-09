@@ -61,5 +61,22 @@
   "Unsupported streamed output item: {0}.": "Unsupported streamed output item: {0}.",
   "Named VS Code messages are not supported.": "Named VS Code messages are not supported.",
   "Function call is missing its name.": "Function call is missing its name.",
-  "Function call arguments must be a JSON object.": "Function call arguments must be a JSON object."
+  "Function call arguments must be a JSON object.": "Function call arguments must be a JSON object.",
+  "Update Swobu": "Update Swobu",
+  "Open Swobu": "Open Swobu",
+  "Swobu is too old for this extension.\n\nUpdate Swobu to continue.": "Swobu is too old for this extension.\n\nUpdate Swobu to continue.",
+  "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.": "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.",
+  "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.": "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.",
+  "Check for Extension Updates": "Check for Extension Updates",
+  "Open Logs": "Open Logs",
+  "Couldn't connect to Swobu.": "Couldn't connect to Swobu.",
+  "Use Default Installation": "Use Default Installation",
+  "Configured Swobu executable can't be found.\n\n{0}": "Configured Swobu executable can't be found.\n\n{0}",
+  "Swobu isn't installed on this extension host.": "Swobu isn't installed on this extension host.",
+  "Swobu installation exited with code {0}.": "Swobu installation exited with code {0}.",
+  "Restart Swobu": "Restart Swobu",
+  "No Swobu routes are available yet.": "No Swobu routes are available yet.",
+  "Start Swobu": "Start Swobu",
+  "Swobu isn't running at {0}.": "Swobu isn't running at {0}.",
+  "Invalid VS Code stateful marker.": "Invalid VS Code stateful marker."
 }

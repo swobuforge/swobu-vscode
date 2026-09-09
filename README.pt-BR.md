@@ -6,13 +6,11 @@ Mantenha seu fluxo de programação. Escolha os modelos por trás dele.
 
 Use uma rota Swobu como modelo nativo do VS Code ou conecte Claude Code e Codex mantendo as interfaces oficiais. Configure provedores e alternativas uma vez no Swobu; a rota permanece igual quando o modelo muda.
 
-Instale a Preview pelo [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) ou pesquise `swobu.swobu` no VS Code. Um único pacote independente de plataforma atende hosts de extensão locais, WSL, Remote SSH e contêineres de desenvolvimento.
+Instale a extensão pelo [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) ou pesquise `swobu.swobu` no VS Code. Um único pacote independente de plataforma atende hosts de extensão locais, WSL, Remote SSH e contêineres de desenvolvimento.
 
 ## Modelos no VS Code
 
 Abra **Manage Language Models**, escolha **Swobu** e selecione uma rota. Swobu gerencia a escolha de provedor e o fallback. Chamadas de ferramentas vêm ativadas para o VS Code Agent.
-
-![Selecione a rota Swobu chamada code no VS Code.](assets/screenshots/model-picker.png)
 
 ## Continue com Claude Code e Codex
 
@@ -21,8 +19,6 @@ Execute **Swobu: Connect Claude Code** ou **Swobu: Connect Codex**, escolha um e
 ## Por que rotas?
 
 Um seletor de provedores troca o modelo no editor. Uma rota permite mudar a capacidade e configurar alternativas por trás de uma seleção estável. Mantenha o cliente e deixe a decisão de provedor com o Swobu.
-
-![Após uma falha planejada no destino principal, a solicitação termina pelo fallback da OpenAI.](assets/screenshots/fallback-proof.png)
 
 ## Primeiros passos
 

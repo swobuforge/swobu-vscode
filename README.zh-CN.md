@@ -6,13 +6,11 @@
 
 将 Swobu 路由用作 VS Code 原生模型，或连接 Claude Code 和 Codex，同时保留它们的官方界面。在 Swobu 中配置一次提供商和备用方案；底层模型变化时，仍可选择同一条路由。
 
-从 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) 安装 Preview，或在 VS Code 中搜索 `swobu.swobu`。同一个平台无关软件包支持本地、WSL、Remote SSH 和开发容器扩展主机。
+从 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu) 安装扩展，或在 VS Code 中搜索 `swobu.swobu`。同一个平台无关软件包支持本地、WSL、Remote SSH 和开发容器扩展主机。
 
 ## 在 VS Code 中使用模型
 
 打开 **Manage Language Models**，选择 **Swobu**，然后选择路由。Swobu 负责提供商选择和故障转移。默认启用工具调用，让路由可用于 VS Code Agent。
-
-![在 VS Code 中选择名为 code 的 Swobu 路由。](assets/screenshots/model-picker.png)
 
 ## 保留 Claude Code 和 Codex
 
@@ -21,8 +19,6 @@
 ## 为什么使用路由？
 
 提供商切换器改变编辑器中的模型。路由则让你在一个稳定的模型选项背后更换资源、设置备用方案。保留客户端，将提供商决策交给 Swobu。
-
-![主路径按计划失败后，请求通过 OpenAI 备用目标完成。](assets/screenshots/fallback-proof.png)
 
 ## 开始使用
 

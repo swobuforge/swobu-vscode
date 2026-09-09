@@ -1,6 +1,6 @@
 {
-  "displayName": "LLM Router for VS Code, Claude Code & Codex — Swobu",
-  "description": "Keep VS Code Agent, Claude Code and Codex. Route model requests through your local Swobu endpoint with provider choice and fallback.",
+  "displayName": "Swobu — LLM Router for VS Code, Claude Code & Codex",
+  "description": "Use VS Code Agent with your own model providers—no Copilot plan required for BYOK. Route OpenRouter, Ollama and more with fallback; also connect Claude Code & Codex.",
   "command.0": "Open",
   "command.1": "Set Up",
   "command.2": "Connect Claude Code",

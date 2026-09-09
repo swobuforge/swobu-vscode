@@ -21,7 +21,7 @@ release-smoke:
 	@npm run release:smoke -- "$(VSIX)"
 publish-marketplace:
 	@test -n "$(VSIX)" || { echo 'VSIX is required'; exit 2; }
-	@npm run publish:marketplace -- "$(VSIX)"
+	@if [ "$${GITHUB_ACTIONS:-}" = true ]; then npm run publish:marketplace -- "$(VSIX)"; else ../scripts/repo-credentials.sh run vscode/marketplace -- npm run publish:marketplace -- "$(VSIX)"; fi
 publish-openvsx:
 	@test -n "$(VSIX)" || { echo 'VSIX is required'; exit 2; }
-	@npm run publish:openvsx -- "$(VSIX)"
+	@if [ "$${GITHUB_ACTIONS:-}" = true ]; then npm run publish:openvsx -- "$(VSIX)"; else ../scripts/repo-credentials.sh run vscode/openvsx -- npm run publish:openvsx -- "$(VSIX)"; fi

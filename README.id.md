@@ -6,13 +6,11 @@ Pertahankan alur pemrograman Anda. Pilih model di baliknya.
 
 Gunakan rute Swobu sebagai model bawaan VS Code, atau hubungkan Claude Code dan Codex tanpa mengganti antarmuka resminya. Konfigurasikan penyedia dan fallback sekali di Swobu; rute tetap sama saat model di baliknya berubah.
 
-Instal Preview dari [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu), atau cari `swobu.swobu` di VS Code. Satu paket lintas platform mendukung host ekstensi lokal, WSL, Remote SSH, dan kontainer pengembangan.
+Instal ekstensi dari [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu), atau cari `swobu.swobu` di VS Code. Satu paket lintas platform mendukung host ekstensi lokal, WSL, Remote SSH, dan kontainer pengembangan.
 
 ## Model di VS Code
 
 Buka **Manage Language Models**, pilih **Swobu**, lalu pilih rute. Swobu menangani pemilihan penyedia dan fallback. Pemanggilan alat aktif secara default untuk VS Code Agent.
-
-![Pilih rute Swobu bernama code di VS Code.](assets/screenshots/model-picker.png)
 
 ## Tetap memakai Claude Code dan Codex
 
@@ -21,8 +19,6 @@ Jalankan **Swobu: Connect Claude Code** atau **Swobu: Connect Codex**, pilih rua
 ## Mengapa rute?
 
 Pemilih penyedia mengubah model di editor. Rute memungkinkan penggantian kapasitas dan pengaturan fallback di balik pilihan model yang tetap. Pertahankan klien; serahkan keputusan penyedia kepada Swobu.
-
-![Setelah kegagalan utama yang direncanakan, permintaan selesai melalui target fallback OpenAI.](assets/screenshots/fallback-proof.png)
 
 ## Memulai
 

@@ -1,6 +1,6 @@
 {
-  "displayName": "Router LLM untuk VS Code, Claude Code, dan Codex — Swobu",
-  "description": "Tetap gunakan VS Code Agent, Claude Code, dan Codex. Rutekan permintaan model melalui endpoint Swobu lokal dengan pilihan penyedia dan fallback.",
+  "displayName": "Swobu — Router LLM untuk VS Code, Claude Code, dan Codex",
+  "description": "Gunakan VS Code Agent dengan penyedia model Anda sendiri—BYOK tidak memerlukan paket Copilot. Rutekan OpenRouter, Ollama, dan lainnya dengan fallback; hubungkan juga Claude Code dan Codex.",
   "command.0": "Buka",
   "command.1": "Siapkan",
   "command.2": "Hubungkan Claude Code",

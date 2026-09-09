@@ -6,9 +6,9 @@ Identity: `swobu.swobu`, publisher `swobu`, public source target `swobuforge/swo
 
 Run the same repository scripts locally and in CI. Qualification produces one platform-independent VSIX and package inspection rejects target metadata, private runtime binaries, development sources and secret-like files. Swobu itself remains an independently installed product.
 
-`npm run verify` runs source proof. `npm run test:integration` runs real VS Code API proof. For development-only real Swobu proof, set `SWOBU_TEST_BINARY` to an explicitly built local executable. This is not runtime release qualification.
+`make verify` runs source proof. `make integration` runs real VS Code API proof. For development-only real Swobu proof, set `SWOBU_TEST_BINARY` to an explicitly built local executable. This is not runtime release qualification.
 
-`npm run release:prepare` rejects dirty/tag/version/provenance drift. `npm run release:package` creates and inspects the sole VSIX. Run `npm run release:smoke -- ./swobu-$(node -p "require('./package.json').version").vsix` to install that manifest-versioned artifact into a clean profile. Full installed native Agent and canonical evidence proof is mandatory before release and must not be replaced by development-host smoke.
+`make release-prepare` rejects dirty/tag/version/provenance drift. `make release-package` creates and inspects the sole VSIX. Run `make release-smoke VSIX=./swobu-<version>.vsix` to install that manifest-versioned artifact into a clean profile. Full installed native Agent and canonical evidence proof is mandatory before release and must not be replaced by development-host smoke. npm scripts remain package-private mechanics behind these Make targets.
 
 Publishing consumes the exact qualified VSIX files listed in `.out/release/SHA256SUMS.txt`. Do not regenerate artifacts between qualification and upload.
 
@@ -39,9 +39,23 @@ exchange, then replace it only after the executable publisher proof passes.
 
 The initial local publication may receive the operator's supplied credential through `VSCE_PAT`. Never print it, pass its literal value in arguments, commit it, or include it in an artifact.
 
+First-version Marketplace validation may remain silent in `vsce publish` for
+several minutes. While the publisher portal reports verification, keep the
+single submission running or inspect portal state; do not interrupt it merely
+because the CLI has emitted no progress, and never start a parallel submission.
+
 ## Open VSX
 
-If no existing `OVSX_PAT` is available: sign into Eclipse, accept the Open VSX Publisher Agreement, establish namespace `swobu`, and provision the token through the supported credential seam/CI secret. Missing account paperwork does not block Visual Studio Marketplace publication.
+Local publication uses the repository vault's destination-specific
+`vscode/marketplace` and `vscode/openvsx` credential scopes. The Make targets
+invoke the supported repository credential seam; do not export tokens manually
+or read the encrypted vault directly. CI supplies Marketplace OIDC and the Open
+VSX secret through its own ephemeral environment.
+
+If no credential is available: sign into Eclipse, accept the Open VSX Publisher
+Agreement, establish namespace `swobu`, and provision the token through the
+registered vault credential or the CI secret. Missing account paperwork does not block
+Visual Studio Marketplace publication.
 
 ## Recovery
 

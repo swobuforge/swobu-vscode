@@ -6,13 +6,11 @@ Gardez vos habitudes de développement. Choisissez les modèles qui les alimente
 
 Utilisez une route Swobu comme modèle natif de VS Code, ou connectez Claude Code et Codex tout en gardant leurs interfaces officielles. Configurez une fois les fournisseurs et le repli dans Swobu : la route reste la même quand le modèle change.
 
-Installez la Preview depuis [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu), ou recherchez `swobu.swobu` dans VS Code. Un seul paquet indépendant de la plateforme prend en charge les hôtes d’extension locaux, WSL, Remote SSH et conteneurs de développement.
+Installez l’extension depuis [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu), ou recherchez `swobu.swobu` dans VS Code. Un seul paquet indépendant de la plateforme prend en charge les hôtes d’extension locaux, WSL, Remote SSH et conteneurs de développement.
 
 ## Modèles dans VS Code
 
 Ouvrez **Manage Language Models**, choisissez **Swobu**, puis une route. Swobu gère le choix du fournisseur et le repli. Les appels d’outils sont activés par défaut pour VS Code Agent.
-
-![Sélectionnez dans VS Code la route Swobu nommée code.](assets/screenshots/model-picker.png)
 
 ## Garder Claude Code et Codex
 
@@ -21,8 +19,6 @@ Lancez **Swobu: Connect Claude Code** ou **Swobu: Connect Codex**, choisissez un
 ## Pourquoi des routes ?
 
 Un sélecteur de fournisseur change le modèle dans l’éditeur. Une route permet de modifier la capacité et le repli derrière une sélection stable. Gardez le client ; confiez le choix du fournisseur à Swobu.
-
-![Après un échec planifié de la cible principale, la requête aboutit grâce à la cible de repli OpenAI.](assets/screenshots/fallback-proof.png)
 
 ## Bien démarrer
 

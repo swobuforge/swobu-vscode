@@ -11,6 +11,7 @@ const [destination,...files]=process.argv.slice(2);if(!["marketplace","openvsx"]
 const checksums=readFileSync(".out/release/SHA256SUMS.txt","utf8");
 for(const file of files){const hash=createHash("sha256").update(readFileSync(file)).digest("hex");if(!checksums.split("\n").some(line=>line===`${hash}  ${file.split(/[\\/]/).at(-1)}`))throw new Error(`Artifact not qualified: ${file}`);}
 const args=publisherArgs(destination,files,process.env.GITHUB_ACTIONS==="true");
+if(destination==="openvsx"&&!process.env.OVSX_PAT)throw new Error("Open VSX publication requires its registered credential scope");
 const result=spawnSync(destination==="marketplace"?"node_modules/.bin/vsce":"node_modules/.bin/ovsx",args,{stdio:"inherit",shell:false});process.exitCode=result.status??1;
 }
 if(process.argv[1]&&fileURLToPath(import.meta.url)===resolve(process.argv[1]))publish();

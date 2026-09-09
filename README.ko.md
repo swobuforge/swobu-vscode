@@ -6,13 +6,11 @@
 
 Swobu 경로를 VS Code 네이티브 모델로 사용하거나 공식 인터페이스를 유지하면서 Claude Code와 Codex를 연결하세요. Swobu에서 제공자와 대체 경로를 한 번 설정하면, 모델이 바뀌어도 같은 경로를 계속 선택할 수 있습니다.
 
-[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu)에서 Preview를 설치하거나 VS Code에서 `swobu.swobu`를 검색하세요. 하나의 플랫폼 독립 패키지가 로컬, WSL, Remote SSH 및 개발 컨테이너 확장 호스트를 지원합니다.
+[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=swobu.swobu)에서 확장을 설치하거나 VS Code에서 `swobu.swobu`를 검색하세요. 하나의 플랫폼 독립 패키지가 로컬, WSL, Remote SSH 및 개발 컨테이너 확장 호스트를 지원합니다.
 
 ## VS Code에서 모델 사용
 
 **Manage Language Models**를 열고 **Swobu**와 경로를 선택하세요. Swobu가 제공자 선택과 대체 처리를 관리합니다. VS Code Agent용 도구 호출은 기본적으로 켜져 있습니다.
-
-![VS Code에서 code라는 Swobu 경로를 선택합니다.](assets/screenshots/model-picker.png)
 
 ## Claude Code와 Codex 유지
 
@@ -21,8 +19,6 @@ Swobu 경로를 VS Code 네이티브 모델로 사용하거나 공식 인터페�
 ## 경로를 사용하는 이유
 
 제공자 전환기는 편집기 안의 모델을 바꿉니다. 경로는 안정적인 모델 선택 뒤에서 처리 자원과 대체 옵션을 바꿀 수 있게 합니다. 클라이언트는 유지하고 제공자 결정은 Swobu에 맡기세요.
-
-![계획된 기본 대상 실패 후 OpenAI 대체 대상으로 요청이 완료됩니다.](assets/screenshots/fallback-proof.png)
 
 ## 시작하기
 

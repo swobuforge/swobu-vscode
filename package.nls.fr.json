@@ -1,6 +1,6 @@
 {
-  "displayName": "Routeur LLM pour VS Code, Claude Code et Codex — Swobu",
-  "description": "Gardez VS Code Agent, Claude Code et Codex. Acheminez les requêtes de modèles via votre point de terminaison Swobu local avec le fournisseur et le repli de votre choix.",
+  "displayName": "Swobu — Routeur LLM pour VS Code, Claude Code et Codex",
+  "description": "Utilisez VS Code Agent avec vos propres fournisseurs de modèles—BYOK ne nécessite aucun forfait Copilot. Routez OpenRouter, Ollama et plus avec repli; connectez aussi Claude Code et Codex.",
   "command.0": "Ouvrir",
   "command.1": "Configurer",
   "command.2": "Connecter Claude Code",

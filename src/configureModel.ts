@@ -28,6 +28,7 @@ export function updateOverride(current:Record<string,ModelOverride>,id:string,fi
 export async function configureModel(context:vscode.ExtensionContext,refresh:()=>void):Promise<void>{
   await ensureRuntime(context);
   const models=await discoverModels(new ControlPlaneClient(endpoint()),overrides());
+  if(!models.length){const open=vscode.l10n.t("Open Swobu"),choice=await vscode.window.showInformationMessage(vscode.l10n.t("No Swobu routes are available yet."),open);if(choice===open)await vscode.commands.executeCommand("swobu.open");return;}
   const route=await vscode.window.showQuickPick(models.map(model=>({label:model.id})),{title:vscode.l10n.t("Configure Model"),placeHolder:vscode.l10n.t("Choose a Swobu route")});
   if(!route)return;
   for(;;){

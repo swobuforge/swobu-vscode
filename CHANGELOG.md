@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.3
+
+Marketplace and documentation refresh:
+
+- clearer VS Code BYOK positioning
+- improved discovery metadata
+- refreshed icon presentation
+- improved setup and provider documentation
+- protocol-based Swobu compatibility and actionable recovery prompts
+- VS Code Agent system-message and multi-turn response-continuation support
+
+No Swobu core behavior changed.
+
 ## 0.1.2
 
 - Preview implementation of the native Swobu language-model provider and Claude Code/Codex connection commands.

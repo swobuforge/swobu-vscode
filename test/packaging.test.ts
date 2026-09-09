@@ -11,7 +11,21 @@ test("release surface has one portable package path and no runtime acquisition",
  for(const file of ["src/runtime.ts",".github/workflows/ci.yml",".github/workflows/release.yml"]){const source=readFileSync(file,"utf8");assert.doesNotMatch(source,/fetch-runtime|package-platform|bundledExecutable|runtime-manifest/);}
  assert.match(readFileSync("scripts/check-vsix.mjs","utf8"),/Private Swobu runtime residue/);
  assert.doesNotMatch(readFileSync("scripts/check-vsix.mjs","utf8"),/assets\/screenshots\/agent-tool-loop\.png/);
+ assert.match(readFileSync("scripts/check-vsix.mjs","utf8"),/Deferred screenshot shipped unexpectedly/);
  assert.match(readFileSync("scripts/package-release.mjs","utf8"),/`swobu-\$\{version\}\.vsix`/);
+});
+test("0.1.3 changes distribution metadata and only the authorized runtime and request control surfaces",()=>{
+ const manifest=JSON.parse(readFileSync("package.json","utf8"));
+ assert.equal(manifest.version,"0.1.3");
+ assert.equal(manifest.preview,undefined);
+ assert.equal(manifest.activationEvents,undefined);
+ assert.equal(manifest.pricing,"Free");
+ assert.deepEqual(manifest.galleryBanner,{color:"#050c12",theme:"dark"});
+ assert.equal(manifest.keywords.length,30);
+ assert.equal(new Set(manifest.keywords).size,30);
+ for(const keyword of ["language model provider","llm router","provider switcher","github copilot","byok","openrouter","ollama","local llm"]){assert.ok(manifest.keywords.includes(keyword),keyword);}
+ const frozenRuntimeDiff=spawnSync("git",["diff","--quiet","v0.1.2","--","src/models.ts","src/responses/errors.ts","src/tokenCount.ts","src/settings.ts"],{encoding:"utf8",shell:false});
+ assert.equal(frozenRuntimeDiff.status,0,`Frozen provider or request-path source differs from v0.1.2: ${frozenRuntimeDiff.stderr}`);
 });
 test("CI qualifies and release publishes the same manifest-derived VSIX",()=>{
  const ci=readFileSync(".github/workflows/ci.yml","utf8");
@@ -40,9 +54,16 @@ test("CI qualifies and release publishes the same manifest-derived VSIX",()=>{
  assert.doesNotMatch(smoke,/let installed=/);
  assert.match(smoke,/source==="marketplace"\?30:1/);
  assert.match(smoke,/setTimeout\(resolve,30_000\)/);
- assert.match(smoke,/\["attach","extension-start"\]/);
+ assert.match(smoke,/\["direct","attach"\]/);
  const preparation=readFileSync("scripts/release-prepare.mjs","utf8");
  assert.doesNotMatch(preparation,/assets\/screenshots\/agent-tool-loop\.png/);
+});
+test("local publication consumes destination-specific repository credential scopes",()=>{
+ const makefile=readFileSync("Makefile","utf8"),publisher=readFileSync("scripts/publish.mjs","utf8");
+ assert.match(makefile,/repo-credentials\.sh run vscode\/marketplace -- npm run publish:marketplace/);
+ assert.match(makefile,/repo-credentials\.sh run vscode\/openvsx -- npm run publish:openvsx/);
+ assert.doesNotMatch(makefile,/\.config\/(?:vscode|vsx)\.key/);
+ assert.doesNotMatch(publisher,/readFileSync\([^\n]*(?:PAT|key)/i);
 });
 test("pinned Marketplace publisher recognizes fail-closed OIDC authentication",()=>{
  const manifest=JSON.parse(readFileSync("package.json","utf8"));

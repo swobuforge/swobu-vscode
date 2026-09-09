@@ -2,9 +2,13 @@
   "name": "swobu",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "swobu",
-  "preview": true,
+  "pricing": "Free",
+  "galleryBanner": {
+    "color": "#050c12",
+    "theme": "dark"
+  },
   "license": "MIT",
   "engines": {
     "vscode": "^1.136.0"
@@ -17,32 +21,38 @@
     "language model provider",
     "llm router",
     "model router",
+    "provider router",
+    "provider switcher",
+    "vscode",
+    "vscode ai",
+    "github copilot",
+    "copilot chat",
     "claude code",
     "codex",
     "coding agent",
     "ai gateway",
+    "llm gateway",
     "failover",
     "fallback",
+    "byok",
+    "custom endpoint",
     "openrouter",
     "ollama",
+    "lm studio",
+    "vllm",
+    "llama.cpp",
+    "deepseek",
+    "openai",
+    "anthropic",
     "bedrock",
     "azure openai",
     "local llm",
-    "provider switcher"
+    "local ai"
   ],
   "extensionKind": [
     "workspace"
   ],
   "main": "./dist/extension.js",
-  "activationEvents": [
-    "onLanguageModelChatProvider:swobu",
-    "onCommand:swobu.open",
-    "onCommand:swobu.setup",
-    "onCommand:swobu.connectClaude",
-    "onCommand:swobu.connectCodex",
-    "onCommand:swobu.configureModel",
-    "onCommand:swobu.refreshModels"
-  ],
   "capabilities": {
     "virtualWorkspaces": false,
     "untrustedWorkspaces": {

@@ -61,5 +61,22 @@
   "Unsupported streamed output item: {0}.": "Непідтримуваний елемент потокового виводу: {0}.",
   "Named VS Code messages are not supported.": "Іменовані повідомлення VS Code не підтримуються.",
   "Function call is missing its name.": "У виклику функції немає назви.",
-  "Function call arguments must be a JSON object.": "Аргументи виклику функції мають бути об’єктом JSON."
+  "Function call arguments must be a JSON object.": "Аргументи виклику функції мають бути об’єктом JSON.",
+  "Update Swobu": "Оновити Swobu",
+  "Open Swobu": "Відкрити Swobu",
+  "Swobu is too old for this extension.\n\nUpdate Swobu to continue.": "Swobu застарілий для цього розширення.\n\nОновіть Swobu, щоб продовжити.",
+  "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol {0}, but the running Swobu uses protocol {1}.": "Swobu потрібно оновити.\n\nЦе розширення підтримує протокол площини керування Swobu {0}, але запущений Swobu використовує протокол {1}.",
+  "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol {0}, but this extension supports protocol {1}.": "Оновіть розширення Swobu для VS Code.\n\nВаше встановлення Swobu використовує протокол площини керування {0}, але це розширення підтримує протокол {1}.",
+  "Check for Extension Updates": "Перевірити оновлення розширень",
+  "Open Logs": "Відкрити журнали",
+  "Couldn't connect to Swobu.": "Не вдалося підключитися до Swobu.",
+  "Use Default Installation": "Використати типове встановлення",
+  "Configured Swobu executable can't be found.\n\n{0}": "Не вдається знайти налаштований виконуваний файл Swobu.\n\n{0}",
+  "Swobu isn't installed on this extension host.": "Swobu не встановлено на цьому вузлі розширення.",
+  "Swobu installation exited with code {0}.": "Встановлення Swobu завершилося з кодом {0}.",
+  "Restart Swobu": "Перезапустити Swobu",
+  "No Swobu routes are available yet.": "Маршрути Swobu поки недоступні.",
+  "Start Swobu": "Запустити Swobu",
+  "Swobu isn't running at {0}.": "Swobu не запущено за адресою {0}.",
+  "Invalid VS Code stateful marker.": "Недійсний маркер стану VS Code."
 }
