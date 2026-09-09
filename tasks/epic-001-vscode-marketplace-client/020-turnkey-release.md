@@ -8,7 +8,7 @@ workflow, and release law.
 
 ## Outcome
 
-Release `swobu.swobu` 0.1.1 Preview from the public
+Release `swobu.swobu` 0.1.2 Preview from the public
 `swobuforge/swobu-vscode` repository as one platform-independent VSIX. The
 extension attaches to or explicitly installs ordinary Swobu, exposes routes as
 native VS Code models, and completes the installed Agent tool loop. The same
@@ -56,16 +56,17 @@ These source and development-host proofs do not qualify current VSIX bytes or
 prove Windows/public installation. No current-source release-qualified VSIX
 exists yet.
 
-The unpublished `v0.1.0` transaction passed Linux qualification and completed
-the Windows routed/cancellation journey, then failed while deleting a
-harness-owned runtime home before Windows released `swobu.yaml.lock`. No
-destination published. The 0.1.1 harness retries that bounded teardown
-operation; the failed tag remains immutable evidence.
+The unpublished `v0.1.0` and `v0.1.1` transactions passed Linux qualification
+and completed the Windows routed/cancellation journey, then failed while
+deleting a harness-owned runtime home before its daemon exited and released
+`swobu.yaml.lock`. No destination published. The 0.1.2 harness awaits that
+known child process before deleting its home; the failed tags remain immutable
+evidence.
 
 ## Remaining release transaction
 
 1. Create/populate the public repository, commit the release source, update the
-   platform gitlink, push, and tag `v0.1.1`.
+   platform gitlink, push, and tag `v0.1.2`.
 2. Build one VSIX from that exact tree and bind its checksum to the release
    transaction.
 3. Pass archive inspection plus Linux `attach` and `extension-start` installed

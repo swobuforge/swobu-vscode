@@ -53,7 +53,8 @@ test("pinned Marketplace publisher recognizes fail-closed OIDC authentication",(
  assert.deepEqual(publisherArgs("marketplace",["qualified.vsix"],true),["publish","--packagePath","qualified.vsix","--oidc"]);
  assert.deepEqual(publisherArgs("marketplace",["qualified.vsix"],false),["publish","--packagePath","qualified.vsix"]);
 });
-test("Windows runtime teardown tolerates daemon lock release latency",()=>{
- const integration=readFileSync("scripts/test-integration.mjs","utf8");
- assert.match(integration,/rmSync\(runtimeHome,\{recursive:true,force:true,maxRetries:20,retryDelay:100\}\)/);
+test("harness-owned runtime exits before its home is removed",()=>{
+ const runtime=readFileSync("test/host/runtime.ts","utf8");
+ assert.match(runtime,/child\.once\("exit",\(\)=>resolve\(\)\)/);
+ assert.ok(runtime.indexOf("await exited")<runtime.indexOf("if(ownsHome)await rm"));
 });

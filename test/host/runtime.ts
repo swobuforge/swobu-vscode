@@ -61,7 +61,7 @@ export async function prepareRuntimeFixture(binary:string,start:"harness"|"exten
  child?.stderr?.on("data",data=>console.error("fixture daemon:",String(data)));
  const wait=(proof:Promise<void>,name:string)=>Promise.race([proof,new Promise<never>((_,reject)=>setTimeout(()=>reject(new Error(`${name} timeout`)),5_000))]);
  const fixtureProof={waitForCancellationStart:()=>wait(started,"cancellation start"),waitForCancellation:()=>wait(cancelled,"cancellation observation")};
- const close=async()=>{if(child)child.kill();else spawnSync(binary,["daemon","down","--addr",`127.0.0.1:${address.port}`],{stdio:"ignore",shell:false});await new Promise<void>(resolve=>upstream.close(()=>resolve()));if(ownsHome)await rm(home,{recursive:true,force:true});};
+ const close=async()=>{if(child){const exited=new Promise<void>(resolve=>child.once("exit",()=>resolve()));child.kill();await exited;}else spawnSync(binary,["daemon","down","--addr",`127.0.0.1:${address.port}`],{stdio:"ignore",shell:false});await new Promise<void>(resolve=>upstream.close(()=>resolve()));if(ownsHome)await rm(home,{recursive:true,force:true});};
  const populate=async()=>{
  try{
   let ready=false;for(let i=0;i<100;i++){try{const response=await fetch(`${endpoint}/_swobu/status`);if(response.ok){ready=true;break;}}catch{/* readiness retry */}await new Promise(resolve=>setTimeout(resolve,100));}
