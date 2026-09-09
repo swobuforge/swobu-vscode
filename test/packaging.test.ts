@@ -53,3 +53,7 @@ test("pinned Marketplace publisher recognizes fail-closed OIDC authentication",(
  assert.deepEqual(publisherArgs("marketplace",["qualified.vsix"],true),["publish","--packagePath","qualified.vsix","--oidc"]);
  assert.deepEqual(publisherArgs("marketplace",["qualified.vsix"],false),["publish","--packagePath","qualified.vsix"]);
 });
+test("Windows runtime teardown tolerates daemon lock release latency",()=>{
+ const integration=readFileSync("scripts/test-integration.mjs","utf8");
+ assert.match(integration,/rmSync\(runtimeHome,\{recursive:true,force:true,maxRetries:20,retryDelay:100\}\)/);
+});
