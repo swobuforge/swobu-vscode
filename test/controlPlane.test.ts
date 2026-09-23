@@ -1,3 +1,53 @@
-import assert from "node:assert/strict";import test from "node:test";import {requireCompatibleStatus,CONTROL_PLANE_PROTOCOL} from "../src/controlPlane.js";
-test("supported protocol is the sole compatibility authority",()=>{assert.doesNotThrow(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:CONTROL_PLANE_PROTOCOL}));for(const swobu_version of ["1.9.4","2.0.3","dev","2.1.0-rc1","git-abc123","whatever"])assert.doesNotThrow(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:CONTROL_PLANE_PROTOCOL,swobu_version}));});
-test("missing and unsupported protocols fail regardless of version",()=>{assert.throws(()=>requireCompatibleStatus({state:"healthy",swobu_version:"9.0.0"}),/incompatible/);assert.throws(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:8,swobu_version:"9.0.0"}),/incompatible/);assert.throws(()=>requireCompatibleStatus({state:"healthy",control_plane_protocol:10,swobu_version:"1.9.4"}),/incompatible/);});
+import assert from "node:assert/strict";
+import test from "node:test";
+import {
+  requireCompatibleStatus,
+  CONTROL_PLANE_PROTOCOL,
+} from "../src/controlPlane.js";
+test("supported protocol is the sole compatibility authority", () => {
+  assert.doesNotThrow(() =>
+    requireCompatibleStatus({
+      state: "healthy",
+      control_plane_protocol: CONTROL_PLANE_PROTOCOL,
+    }),
+  );
+  for (const swobu_version of [
+    "1.9.4",
+    "2.0.3",
+    "dev",
+    "2.1.0-rc1",
+    "git-abc123",
+    "whatever",
+  ])
+    assert.doesNotThrow(() =>
+      requireCompatibleStatus({
+        state: "healthy",
+        control_plane_protocol: CONTROL_PLANE_PROTOCOL,
+        swobu_version,
+      }),
+    );
+});
+test("missing and unsupported protocols fail regardless of version", () => {
+  assert.throws(
+    () => requireCompatibleStatus({ state: "healthy", swobu_version: "9.0.0" }),
+    /incompatible/,
+  );
+  assert.throws(
+    () =>
+      requireCompatibleStatus({
+        state: "healthy",
+        control_plane_protocol: 8,
+        swobu_version: "9.0.0",
+      }),
+    /incompatible/,
+  );
+  assert.throws(
+    () =>
+      requireCompatibleStatus({
+        state: "healthy",
+        control_plane_protocol: 11,
+        swobu_version: "1.9.4",
+      }),
+    /incompatible/,
+  );
+});
