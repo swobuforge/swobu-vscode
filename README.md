@@ -94,3 +94,7 @@ Extensions using the standard Language Model API can consume the user's Swobu ro
 Extension source is [MIT licensed](LICENSE). Swobu is installed and licensed separately. Swobu is not affiliated with Microsoft, Anthropic or OpenAI.
 
 Using Swobu successfully? A [Marketplace rating](https://marketplace.visualstudio.com/items?itemName=swobu.swobu&ssr=false#review-details) helps other developers judge it.
+
+For local development, `make check` validates the current working files without
+Git metadata or release-tag comparisons. Git identity is checked only by explicit
+release preparation.

@@ -24,7 +24,7 @@ test("cancellation aborts the one in-flight Responses request", async () => {
       return new Response(
         JSON.stringify({
           state: "healthy",
-          control_plane_protocol: 10,
+          control_plane_protocol: 14,
           swobu_version: "2.0.0",
         }),
         { status: 200 },
@@ -110,7 +110,7 @@ test("image-enabled provider submits ordered tool result once without extension 
       return new Response(
         JSON.stringify({
           state: "healthy",
-          control_plane_protocol: 10,
+          control_plane_protocol: 14,
           swobu_version: "2.0.0",
         }),
       );
@@ -179,7 +179,7 @@ test("provider does not retry backend failure", async () => {
       return new Response(
         JSON.stringify({
           state: "healthy",
-          control_plane_protocol: 10,
+          control_plane_protocol: 14,
           swobu_version: "2.0.0",
         }),
       );

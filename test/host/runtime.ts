@@ -63,12 +63,12 @@ export async function prepareRuntimeFixture(binary:string,start:"harness"|"exten
  const close=async()=>{if(child){const exited=new Promise<void>(resolve=>child.once("exit",()=>resolve()));child.kill();await exited;}else spawnSync(binary,["daemon","down","--addr",`127.0.0.1:${address.port}`],{stdio:"ignore",shell:false});await new Promise<void>(resolve=>upstream.close(()=>resolve()));if(ownsHome)await rm(home,{recursive:true,force:true});};
  const populate=async()=>{
  try{
-  let ready=false;for(let i=0;i<100;i++){try{const response=await fetch(`${endpoint}/_swobu/status`);if(response.ok){ready=true;break;}}catch{/* readiness retry */}await new Promise(resolve=>setTimeout(resolve,100));}
+  let ready=false;for(let i=0;i<100;i++){try{const response=await fetch(`${endpoint}/api/v1/status`);if(response.ok){ready=true;break;}}catch{/* readiness retry */}await new Promise(resolve=>setTimeout(resolve,100));}
   assert.ok(ready,"real daemon readiness");
-  const created=await fetch(`${endpoint}/_swobu/workspaces`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({slug:"fixture",initial_route:"code",target:{id:"fixture",model:"fixture",protocol:"responses_stream",connection:{custom:{base_url:`http://127.0.0.1:${upstreamAddress.port}`}}}})});
+  const created=await fetch(`${endpoint}/api/v1/workspaces`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({slug:"fixture",initial_route:"code",target:{id:"fixture",model:"fixture",protocol:"responses_stream",connection:{custom:{base_url:`http://127.0.0.1:${upstreamAddress.port}`}}}})});
   assert.equal(created.status,201,await created.text());
   const target=(id:string,suffix:string)=>({id,model:"fixture",protocol:"responses_stream",connection:{custom:{base_url:`http://127.0.0.1:${upstreamAddress.port}${suffix}`}}});
-  const route=await fetch(`${endpoint}/_swobu/workspaces/fixture/routes/code`,{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify({tiers:[{targets:[target("unavailable","/fail")]},{targets:[target("fixture","")]}]})});
+  const route=await fetch(`${endpoint}/api/v1/workspaces/fixture/routes/code`,{method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify({tiers:[{targets:[target("unavailable","/fail")]},{targets:[target("fixture","")]}]})});
   assert.equal(route.status,200,await route.text());
   return{endpoint,close,...fixtureProof};
  }catch(error){await close();throw error;}

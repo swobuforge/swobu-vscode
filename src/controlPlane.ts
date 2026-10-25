@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-export const CONTROL_PLANE_PROTOCOL = 10;
+export const CONTROL_PLANE_PROTOCOL = 14;
 export interface StatusPayload {
   state: "healthy" | "uninitialized" | "degraded";
   workspace_count?: number;
@@ -37,13 +37,15 @@ export class ControlPlaneClient {
     private readonly fetcher: typeof fetch = fetch,
   ) {}
   async status(signal?: AbortSignal): Promise<StatusPayload> {
-    return this.get("/_swobu/status", signal);
+    // Node health is canonical Control; a legacy success must not mask a
+    // missing versioned endpoint. Protocol admission remains independent.
+    return this.get("/api/v1/status", signal);
   }
   async workspaces(signal?: AbortSignal): Promise<WorkspaceSummary[]> {
-    return this.get("/_swobu/workspaces", signal);
+    return this.get("/api/v1/workspaces", signal);
   }
   async workspace(slug: string, signal?: AbortSignal): Promise<Workspace> {
-    return this.get(`/_swobu/workspaces/${encodeURIComponent(slug)}`, signal);
+    return this.get(`/api/v1/workspaces/${encodeURIComponent(slug)}`, signal);
   }
   private async get<T>(path: string, signal?: AbortSignal): Promise<T> {
     const response = await this.fetcher(

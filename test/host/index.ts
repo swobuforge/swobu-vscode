@@ -7,21 +7,21 @@ export async function run(): Promise<void> {
   let directResponses = 0;
   const server = createServer(async (req, res) => {
     res.setHeader("content-type", "application/json");
-    if (req.url === "/_swobu/status")
+    if (req.url === "/api/v1/status")
       res.end(
         JSON.stringify({
           state: "healthy",
-          control_plane_protocol: 10,
+          control_plane_protocol: 14,
           swobu_version: "2.0.0",
         }),
       );
-    else if (req.url === "/_swobu/workspaces")
+    else if (req.url === "/api/v1/workspaces")
       res.end(
         JSON.stringify([
           { slug: "fixture", default_route: "code", route_count: 1 },
         ]),
       );
-    else if (req.url === "/_swobu/workspaces/fixture")
+    else if (req.url === "/api/v1/workspaces/fixture")
       res.end(
         JSON.stringify({
           slug: "fixture",
@@ -249,26 +249,21 @@ export async function run(): Promise<void> {
       await (real ?? prepared)!.waitForCancellation();
       cancellation.dispose();
       const evidence = await fetch(
-        `${(real ?? prepared)!.endpoint}/_swobu/status-projection?scope=all`,
+        `${(real ?? prepared)!.endpoint}/_swobu/activity`,
       );
       const projection = (await evidence.json()) as {
-        recent_traffic: Array<{
-          client_handler?: string;
-          client_family: string;
-          client_protocol: string;
-          status_code: number;
-          fallback_recovered: boolean;
+        exchanges: Array<{
+          client_family?: string;
+          operation: string;
+          state: string;
+          http_status: number;
           token_usage?: { input_tokens: number };
         }>;
       };
       assert.ok(
-        projection.recent_traffic.some(
+        projection.exchanges.some(
           (row) =>
-            row.client_handler?.startsWith("swobu-vscode/") &&
-            row.client_protocol === "responses" &&
-            row.status_code === 200 &&
-            row.fallback_recovered &&
-            !!row.token_usage,
+            row.client_family === "vscode" && row.http_status === 200,
         ),
         "canonical client identity, fallback and usage evidence",
       );

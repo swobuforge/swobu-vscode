@@ -23,13 +23,13 @@ test("protocol direction selects one actionable repair", () => {
   });
   assert.deepEqual(compatibilityRepair(8), {
     message:
-      "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol 10, but the running Swobu uses protocol 8.",
+      "Swobu needs an update.\n\nThis extension supports Swobu control-plane protocol 14, but the running Swobu uses protocol 8.",
     actions: ["Update Swobu", "Open Swobu"],
     repair: "swobu",
   });
-  assert.deepEqual(compatibilityRepair(11), {
+  assert.deepEqual(compatibilityRepair(15), {
     message:
-      "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol 11, but this extension supports protocol 10.",
+      "Update the Swobu VS Code extension.\n\nYour Swobu installation uses control-plane protocol 15, but this extension supports protocol 14.",
     actions: ["Check for Extension Updates"],
     repair: "extension",
   });
@@ -270,7 +270,7 @@ test("cancelling discovery stops only its wait, not shared runtime initializatio
       new Response(
         JSON.stringify({
           state: "healthy",
-          control_plane_protocol: 10,
+          control_plane_protocol: 14,
           swobu_version: "2.0.0",
         }),
         { status: 200 },
